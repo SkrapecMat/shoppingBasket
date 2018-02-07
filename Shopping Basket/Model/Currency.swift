@@ -6,8 +6,6 @@
 //  Copyright © 2018 Mateja Škrapec. All rights reserved.
 //
 
-import UIKit
-
 struct Currency {
     let name: String
     let isoCode: String

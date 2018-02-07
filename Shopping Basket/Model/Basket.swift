@@ -6,10 +6,7 @@
 //  Copyright © 2018 Mateja Škrapec. All rights reserved.
 //
 
-import UIKit
-
 struct Basket {
     private(set) var totalPriceInUSDollars: Money
-
     private var items: [LineItem] = []
 }
