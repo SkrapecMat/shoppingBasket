@@ -9,21 +9,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Product List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Shopping_Basket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ProductListViewController" customModule="Shopping_Basket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rI1-6l-ngM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="523"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeQ-Xa-Mhr">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="UYA-Y7-Q36"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZeQ-Xa-Mhr" firstAttribute="top" secondItem="rI1-6l-ngM" secondAttribute="bottom" id="6gi-SO-Hsn"/>
+                            <constraint firstItem="ZeQ-Xa-Mhr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7jI-z3-6YU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rI1-6l-ngM" secondAttribute="trailing" id="JGX-cN-8tW"/>
+                            <constraint firstItem="rI1-6l-ngM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PaS-e2-r1l"/>
+                            <constraint firstItem="ZeQ-Xa-Mhr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Vea-jJ-0bX"/>
+                            <constraint firstItem="ZeQ-Xa-Mhr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aRY-7M-MqF"/>
+                            <constraint firstItem="rI1-6l-ngM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ubZ-k2-vgi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="rgz-tR-3pj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="493"/>
+            <point key="canvasLocation" x="981.60000000000002" y="492.50374812593708"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="abP-Hi-rMy">
