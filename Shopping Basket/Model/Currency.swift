@@ -9,4 +9,8 @@
 struct Currency {
     let name: String
     let isoCode: String
+
+    static var `default`: Currency {
+        return Currency(name: "United States Dollar", isoCode: "USD")
+    }
 }
