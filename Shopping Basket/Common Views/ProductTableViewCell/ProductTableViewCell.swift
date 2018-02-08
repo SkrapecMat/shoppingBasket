@@ -32,7 +32,7 @@ class ProductTableViewCell: UITableViewCell {
     // MARK: UI methods
 
     private func addShadowToWrapperView() {
-        contentWrapperView.layer.shadowColor = UIColor.lightGray.cgColor
+        contentWrapperView.layer.shadowColor = UIColor.secondaryTextColor.cgColor
         contentWrapperView.layer.shadowOffset = CGSize(width: 0.0,
                                                        height: kWrapperShadowHeight)
         contentWrapperView.layer.shadowOpacity = kWrapperShadowOpacity

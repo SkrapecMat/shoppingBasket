@@ -16,14 +16,23 @@ class ProductListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavBarTitle()
         setupTable()
     }
 
+    // MARK: Setup methods
     private func setupTable() {
         productsTable.register(UINib(nibName: ProductTableViewCell.cellIdentifier(),
                                      bundle: nil),
                                forCellReuseIdentifier: ProductTableViewCell.cellIdentifier())
         productsTable.dataSource = self
+    }
+
+    // MARK: UI methods
+
+    private func setNavBarTitle() {
+        self.navigationController?.setupTitle(withTitle:
+            NSLocalizedString("PRODUCT_LIST_VC__TITLE", comment: ""))
     }
 }
 
