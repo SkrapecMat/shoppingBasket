@@ -11,16 +11,20 @@ import UIKit
 class ProductListViewController: UIViewController {
 
     @IBOutlet weak var productsTable: UITableView!
+    @IBOutlet weak var totalPriceLabel: UILabel!
 
     private var productRepository = InMemoryProductRepository()
+    private var basket = Basket()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarTitle()
         setupTable()
+        setTotalPrice()
     }
 
     // MARK: Setup methods
+
     private func setupTable() {
         productsTable.register(UINib(nibName: ProductTableViewCell.cellIdentifier(),
                                      bundle: nil),
@@ -28,11 +32,21 @@ class ProductListViewController: UIViewController {
         productsTable.dataSource = self
     }
 
+    private func setTotalPrice() {
+        totalPriceLabel.text = basket.totalPriceInUSDollars.toString()
+    }
+
     // MARK: UI methods
 
     private func setNavBarTitle() {
         self.navigationController?.setupTitle(withTitle:
             NSLocalizedString("PRODUCT_LIST_VC__TITLE", comment: ""))
+    }
+
+    // MARK: Actions
+
+    @IBAction func didPressToBasket(_ sender: UIButton) {
+
     }
 }
 

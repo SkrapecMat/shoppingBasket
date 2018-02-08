@@ -12,4 +12,5 @@ extension UIColor {
     static var titleColor = UIColor(named: "titleColor")!
     static var primaryTextColor = UIColor(named: "primaryTextColor")!
     static var secondaryTextColor = UIColor(named: "secondaryTextColor")!
+    static var lightBackgroundColor = UIColor(named: "lightBackgroundColor")!
 }

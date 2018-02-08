@@ -41,6 +41,8 @@
 		D23B704F202CE47500735E6D /* UIColor+ShoppingBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B704D202CE47500735E6D /* UIColor+ShoppingBasket.swift */; };
 		D23B7051202CE70D00735E6D /* UINavigationController+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B7050202CE70D00735E6D /* UINavigationController+Title.swift */; };
 		D23B7052202CE70D00735E6D /* UINavigationController+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B7050202CE70D00735E6D /* UINavigationController+Title.swift */; };
+		D23B7054202CEF3700735E6D /* Money+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B7053202CEF3700735E6D /* Money+toString.swift */; };
+		D23B7055202CEF3700735E6D /* Money+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B7053202CEF3700735E6D /* Money+toString.swift */; };
 		D2AC4E9B202B5505005B6DE7 /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC4E9A202B5505005B6DE7 /* LineItem.swift */; };
 		D2AC4E9C202B5505005B6DE7 /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC4E9A202B5505005B6DE7 /* LineItem.swift */; };
 		D2AC4EB5202B6B03005B6DE7 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC4EB4202B6B03005B6DE7 /* ProductRepository.swift */; };
@@ -91,6 +93,7 @@
 		D23B7049202CE22D00735E6D /* UIFont+ShoppingBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ShoppingBasket.swift"; sourceTree = "<group>"; };
 		D23B704D202CE47500735E6D /* UIColor+ShoppingBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ShoppingBasket.swift"; sourceTree = "<group>"; };
 		D23B7050202CE70D00735E6D /* UINavigationController+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Title.swift"; sourceTree = "<group>"; };
+		D23B7053202CEF3700735E6D /* Money+toString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Money+toString.swift"; sourceTree = "<group>"; };
 		D2AC4E9A202B5505005B6DE7 /* LineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineItem.swift; sourceTree = "<group>"; };
 		D2AC4EB4202B6B03005B6DE7 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		D2AC4EB7202B7239005B6DE7 /* InMemoryProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryProductRepository.swift; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 				D23B7049202CE22D00735E6D /* UIFont+ShoppingBasket.swift */,
 				D23B704D202CE47500735E6D /* UIColor+ShoppingBasket.swift */,
 				D23B7050202CE70D00735E6D /* UINavigationController+Title.swift */,
+				D23B7053202CEF3700735E6D /* Money+toString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -372,6 +376,7 @@
 				D2153185202A5E2100F1879D /* Money.swift in Sources */,
 				D2AC4EC2202B7B5B005B6DE7 /* CurrencyService.swift in Sources */,
 				D2AC4ECC202B80A9005B6DE7 /* NetworkingConstants.swift in Sources */,
+				D23B7054202CEF3700735E6D /* Money+toString.swift in Sources */,
 				D2153152202A3C1400F1879D /* AppDelegate.swift in Sources */,
 				D20EBADD202B9E8D007B699C /* ProductTableViewCellViewModel.swift in Sources */,
 				D20EBAE5202B9FD2007B699C /* UITableViewCell+Identifier.swift in Sources */,
@@ -399,6 +404,7 @@
 				D2153189202A5EF400F1879D /* Basket.swift in Sources */,
 				D20EBADA202B9E8D007B699C /* ProductTableViewCell.swift in Sources */,
 				D2153183202A5DA400F1879D /* Currency.swift in Sources */,
+				D23B7055202CEF3700735E6D /* Money+toString.swift in Sources */,
 				D2153180202A5D5800F1879D /* Product.swift in Sources */,
 				D2AC4EC6202B7C2E005B6DE7 /* JSONRatesCurrencyService.swift in Sources */,
 				D20EBAE6202B9FD2007B699C /* UITableViewCell+Identifier.swift in Sources */,

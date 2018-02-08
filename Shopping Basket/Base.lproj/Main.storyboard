@@ -5,9 +5,15 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MarkerFeltThin.ttf">
+            <string>MarkerFelt-Thin</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Product List View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,9 +29,33 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeQ-Xa-Mhr">
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-Bg-lFw">
+                                        <rect key="frame" x="30" y="29.5" width="255" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <color key="textColor" name="titleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPO-zW-OiN">
+                                        <rect key="frame" x="295" y="15" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="4oE-iR-pmW"/>
+                                            <constraint firstAttribute="height" constant="50" id="mvL-7j-7bt"/>
+                                        </constraints>
+                                        <state key="normal" image="basket_icon"/>
+                                        <connections>
+                                            <action selector="didPressToBasket:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CJR-g3-PoM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="lightBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="lPO-zW-OiN" firstAttribute="leading" secondItem="2Rq-Bg-lFw" secondAttribute="trailing" constant="10" id="KRH-iM-5G9"/>
+                                    <constraint firstItem="2Rq-Bg-lFw" firstAttribute="centerY" secondItem="ZeQ-Xa-Mhr" secondAttribute="centerY" id="Oh6-tx-NWP"/>
+                                    <constraint firstItem="lPO-zW-OiN" firstAttribute="centerY" secondItem="ZeQ-Xa-Mhr" secondAttribute="centerY" id="TmE-bd-ut2"/>
+                                    <constraint firstAttribute="trailing" secondItem="lPO-zW-OiN" secondAttribute="trailing" constant="30" id="U3x-2N-ueV"/>
                                     <constraint firstAttribute="height" constant="80" id="UYA-Y7-Q36"/>
+                                    <constraint firstItem="2Rq-Bg-lFw" firstAttribute="leading" secondItem="ZeQ-Xa-Mhr" secondAttribute="leading" constant="30" id="f6d-Hw-Hl6"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -44,6 +74,7 @@
                     <navigationItem key="navigationItem" id="rgz-tR-3pj"/>
                     <connections>
                         <outlet property="productsTable" destination="rI1-6l-ngM" id="uvV-74-dHi"/>
+                        <outlet property="totalPriceLabel" destination="2Rq-Bg-lFw" id="gwz-X2-QPN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -69,4 +100,13 @@
             <point key="canvasLocation" x="97.599999999999994" y="492.95352323838085"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="basket_icon" width="80" height="80"/>
+        <namedColor name="lightBackgroundColor">
+            <color red="0.90200001001358032" green="0.90200001001358032" blue="0.90200001001358032" alpha="0.60199999809265137" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="titleColor">
+            <color red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

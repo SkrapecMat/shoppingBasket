@@ -8,6 +8,6 @@
 
 class Basket {
     private(set) var totalPriceInUSDollars: Money = Money(currency: Currency.default,
-                                                          amount: 0)
+                                                     amount: 0)
     private var selectedItems: [LineItem] = []
 }
