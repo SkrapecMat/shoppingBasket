@@ -12,7 +12,11 @@ struct ProductTableViewCellViewModel {
     let name: String
     let price: String
     var amount: Int = 0
-    let image: UIImage
+    let image: UIImage?
 
-    
+    init(_ product: Product) {
+        self.name = product.name
+        self.image = product.image
+        self.price = "\(product.price.amount) \(product.price.currency.isoCode)"
+    }
 }

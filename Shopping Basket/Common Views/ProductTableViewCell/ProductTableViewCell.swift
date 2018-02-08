@@ -15,21 +15,34 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productAmountTextField: UITextField!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var removeProductButton: UIButton!
+    @IBOutlet weak var contentWrapperView: UIView!
+
+    // MARK: Constants
+
+    private let kWrapperShadowHeight: CGFloat = 4.0
+    private let kWrapperShadowOpacity: Float = 0.2
+
+    // MARK: Life cycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        addShadowToWrapperView()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: UI methods
 
-        // Configure the view for the selected state
+    private func addShadowToWrapperView() {
+        contentWrapperView.layer.shadowColor = UIColor.lightGray.cgColor
+        contentWrapperView.layer.shadowOffset = CGSize(width: 0.0,
+                                                       height: kWrapperShadowHeight)
+        contentWrapperView.layer.shadowOpacity = kWrapperShadowOpacity
+        contentWrapperView.layer.shadowRadius = kWrapperShadowHeight
     }
+
+    // MARK: Actions
 
     @IBAction func tappedAddOneItem(_ sender: Any) {
     }
-
 
     @IBAction func tappedRemoveOneItem(_ sender: Any) {
     }

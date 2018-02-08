@@ -22,29 +22,29 @@ class InMemoryProductRepository: ProductRepository {
         return products
     }
 
+    func total() -> Int {
+        return products.count
+    }
+
     private func initializeProducts() -> [Product] {
         var productsList: [Product] = []
 
-        let peasProduct = Product(uuid: UUID().uuidString,
-                                  name: NSLocalizedString("PRODUCT_NAME__PEAS", comment: ""),
+        let peasProduct = Product(withName: NSLocalizedString("PRODUCT_NAME__PEAS", comment: ""),
                                   price: Money(currency: Currency.default, amount: peasPrice),
                                   image: #imageLiteral(resourceName: "peas_image"))
         productsList.append(peasProduct)
 
-        let eggsProduct = Product(uuid: UUID().uuidString,
-                              name: NSLocalizedString("PRODUCT_NAME__EGGS", comment: ""),
+        let eggsProduct = Product(withName: NSLocalizedString("PRODUCT_NAME__EGGS", comment: ""),
                               price: Money(currency: Currency.default, amount: eggsPrice),
                               image: #imageLiteral(resourceName: "eggs_Image"))
         productsList.append(eggsProduct)
 
-        let milkProduct = Product(uuid: UUID().uuidString,
-                                  name: NSLocalizedString("PRODUCT_NAME__MILK", comment: ""),
+        let milkProduct = Product(withName: NSLocalizedString("PRODUCT_NAME__MILK", comment: ""),
                                   price: Money(currency: Currency.default, amount: milkPrice),
                                   image: #imageLiteral(resourceName: "milk_image"))
         productsList.append(milkProduct)
 
-        let beansProduct = Product(uuid: UUID().uuidString,
-                                  name: NSLocalizedString("PRODUCT_NAME__BEANS", comment: ""),
+        let beansProduct = Product(withName: NSLocalizedString("PRODUCT_NAME__BEANS", comment: ""),
                                   price: Money(currency: Currency.default, amount: beansPrice),
                                   image: #imageLiteral(resourceName: "beans_image"))
         productsList.append(beansProduct)

@@ -6,7 +6,8 @@
 //  Copyright © 2018 Mateja Škrapec. All rights reserved.
 //
 
-struct Basket {
-    private(set) var totalPriceInUSDollars: Money
-    private var items: [LineItem] = []
+class Basket {
+    private(set) var totalPriceInUSDollars: Money = Money(currency: Currency.default,
+                                                          amount: 0)
+    private var selectedItems: [LineItem] = []
 }

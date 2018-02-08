@@ -11,8 +11,17 @@
 		D20EBACC202B976A007B699C /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBACA202B976A007B699C /* NetworkingError.swift */; };
 		D20EBAD0202B9B0E007B699C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D20EBAD3202B9B0E007B699C /* Localizable.strings */; };
 		D20EBAD1202B9B0E007B699C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D20EBAD3202B9B0E007B699C /* Localizable.strings */; };
+		D20EBAD9202B9E8D007B699C /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAD6202B9E8D007B699C /* ProductTableViewCell.swift */; };
+		D20EBADA202B9E8D007B699C /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAD6202B9E8D007B699C /* ProductTableViewCell.swift */; };
+		D20EBADB202B9E8D007B699C /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20EBAD7202B9E8D007B699C /* ProductTableViewCell.xib */; };
+		D20EBADC202B9E8D007B699C /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20EBAD7202B9E8D007B699C /* ProductTableViewCell.xib */; };
+		D20EBADD202B9E8D007B699C /* ProductTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAD8202B9E8D007B699C /* ProductTableViewCellViewModel.swift */; };
+		D20EBADE202B9E8D007B699C /* ProductTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAD8202B9E8D007B699C /* ProductTableViewCellViewModel.swift */; };
+		D20EBAE1202B9F60007B699C /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAE0202B9F60007B699C /* ProductListViewController.swift */; };
+		D20EBAE2202B9F60007B699C /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAE0202B9F60007B699C /* ProductListViewController.swift */; };
+		D20EBAE5202B9FD2007B699C /* UITableViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAE4202B9FD2007B699C /* UITableViewCell+Identifier.swift */; };
+		D20EBAE6202B9FD2007B699C /* UITableViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAE4202B9FD2007B699C /* UITableViewCell+Identifier.swift */; };
 		D2153152202A3C1400F1879D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153151202A3C1400F1879D /* AppDelegate.swift */; };
-		D2153154202A3C1400F1879D /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153153202A3C1400F1879D /* ProductListViewController.swift */; };
 		D2153157202A3C1400F1879D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2153155202A3C1400F1879D /* Main.storyboard */; };
 		D2153159202A3C1400F1879D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2153158202A3C1400F1879D /* Assets.xcassets */; };
 		D215315C202A3C1400F1879D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D215315A202A3C1400F1879D /* LaunchScreen.storyboard */; };
@@ -54,9 +63,13 @@
 /* Begin PBXFileReference section */
 		D20EBACA202B976A007B699C /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		D20EBAD2202B9B0E007B699C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D20EBAD6202B9E8D007B699C /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		D20EBAD7202B9E8D007B699C /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
+		D20EBAD8202B9E8D007B699C /* ProductTableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		D20EBAE0202B9F60007B699C /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		D20EBAE4202B9FD2007B699C /* UITableViewCell+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Identifier.swift"; sourceTree = "<group>"; };
 		D215314E202A3C1400F1879D /* Shopping Basket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Basket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2153151202A3C1400F1879D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D2153153202A3C1400F1879D /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		D2153156202A3C1400F1879D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2153158202A3C1400F1879D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D215315B202A3C1400F1879D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,10 +108,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20EBAD4202B9E8D007B699C /* Common Views */ = {
+			isa = PBXGroup;
+			children = (
+				D20EBAD5202B9E8D007B699C /* ProductTableViewCell */,
+			);
+			path = "Common Views";
+			sourceTree = "<group>";
+		};
+		D20EBAD5202B9E8D007B699C /* ProductTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D20EBAD6202B9E8D007B699C /* ProductTableViewCell.swift */,
+				D20EBAD7202B9E8D007B699C /* ProductTableViewCell.xib */,
+				D20EBAD8202B9E8D007B699C /* ProductTableViewCellViewModel.swift */,
+			);
+			path = ProductTableViewCell;
+			sourceTree = "<group>";
+		};
+		D20EBADF202B9F60007B699C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D20EBAE0202B9F60007B699C /* ProductListViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D20EBAE3202B9FAB007B699C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D20EBAE4202B9FD2007B699C /* UITableViewCell+Identifier.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D2153145202A3C1400F1879D = {
 			isa = PBXGroup;
 			children = (
 				D2153150202A3C1400F1879D /* Shopping Basket */,
+				D2153171202A3CD200F1879D /* Supporting Files */,
 				D2153165202A3C1400F1879D /* Shopping BasketTests */,
 				D215314F202A3C1400F1879D /* Products */,
 			);
@@ -116,11 +164,12 @@
 		D2153150202A3C1400F1879D /* Shopping Basket */ = {
 			isa = PBXGroup;
 			children = (
+				D20EBAE3202B9FAB007B699C /* Extensions */,
+				D20EBAD4202B9E8D007B699C /* Common Views */,
 				D2AC4EC0202B7AF0005B6DE7 /* Networking */,
 				D2AC4EB3202B6A21005B6DE7 /* Repositories */,
 				D215317D202A5D4B00F1879D /* Model */,
-				D2153171202A3CD200F1879D /* Supporting Files */,
-				D2153153202A3C1400F1879D /* ProductListViewController.swift */,
+				D20EBADF202B9F60007B699C /* Screens */,
 				D2153155202A3C1400F1879D /* Main.storyboard */,
 				D2153158202A3C1400F1879D /* Assets.xcassets */,
 				D215315D202A3C1400F1879D /* Info.plist */,
@@ -273,6 +322,7 @@
 			files = (
 				D215315C202A3C1400F1879D /* LaunchScreen.storyboard in Resources */,
 				D20EBAD0202B9B0E007B699C /* Localizable.strings in Resources */,
+				D20EBADB202B9E8D007B699C /* ProductTableViewCell.xib in Resources */,
 				D2153159202A3C1400F1879D /* Assets.xcassets in Resources */,
 				D2153157202A3C1400F1879D /* Main.storyboard in Resources */,
 			);
@@ -283,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D20EBAD1202B9B0E007B699C /* Localizable.strings in Resources */,
+				D20EBADC202B9E8D007B699C /* ProductTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,17 +346,20 @@
 			files = (
 				D2AC4EB8202B7239005B6DE7 /* InMemoryProductRepository.swift in Sources */,
 				D2AC4EB5202B6B03005B6DE7 /* ProductRepository.swift in Sources */,
+				D20EBAD9202B9E8D007B699C /* ProductTableViewCell.swift in Sources */,
 				D20EBACB202B976A007B699C /* NetworkingError.swift in Sources */,
 				D2AC4E9B202B5505005B6DE7 /* LineItem.swift in Sources */,
 				D2AC4EC5202B7C2E005B6DE7 /* JSONRatesCurrencyService.swift in Sources */,
+				D20EBAE1202B9F60007B699C /* ProductListViewController.swift in Sources */,
 				D2153182202A5DA400F1879D /* Currency.swift in Sources */,
 				D2AC4EC9202B7F26005B6DE7 /* CurrencyDTO.swift in Sources */,
 				D2153188202A5EF400F1879D /* Basket.swift in Sources */,
-				D2153154202A3C1400F1879D /* ProductListViewController.swift in Sources */,
 				D2153185202A5E2100F1879D /* Money.swift in Sources */,
 				D2AC4EC2202B7B5B005B6DE7 /* CurrencyService.swift in Sources */,
 				D2AC4ECC202B80A9005B6DE7 /* NetworkingConstants.swift in Sources */,
 				D2153152202A3C1400F1879D /* AppDelegate.swift in Sources */,
+				D20EBADD202B9E8D007B699C /* ProductTableViewCellViewModel.swift in Sources */,
+				D20EBAE5202B9FD2007B699C /* UITableViewCell+Identifier.swift in Sources */,
 				D215317F202A5D5800F1879D /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,18 +368,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20EBADE202B9E8D007B699C /* ProductTableViewCellViewModel.swift in Sources */,
 				D2AC4ECA202B7F26005B6DE7 /* CurrencyDTO.swift in Sources */,
 				D2AC4E9C202B5505005B6DE7 /* LineItem.swift in Sources */,
 				D2AC4ECD202B80A9005B6DE7 /* NetworkingConstants.swift in Sources */,
 				D20EBACC202B976A007B699C /* NetworkingError.swift in Sources */,
 				D2AC4EB9202B7239005B6DE7 /* InMemoryProductRepository.swift in Sources */,
+				D20EBAE2202B9F60007B699C /* ProductListViewController.swift in Sources */,
 				D2153186202A5E2100F1879D /* Money.swift in Sources */,
 				D2AC4EB6202B6B03005B6DE7 /* ProductRepository.swift in Sources */,
 				D2AC4EC3202B7B5B005B6DE7 /* CurrencyService.swift in Sources */,
 				D2153189202A5EF400F1879D /* Basket.swift in Sources */,
+				D20EBADA202B9E8D007B699C /* ProductTableViewCell.swift in Sources */,
 				D2153183202A5DA400F1879D /* Currency.swift in Sources */,
 				D2153180202A5D5800F1879D /* Product.swift in Sources */,
 				D2AC4EC6202B7C2E005B6DE7 /* JSONRatesCurrencyService.swift in Sources */,
+				D20EBAE6202B9FD2007B699C /* UITableViewCell+Identifier.swift in Sources */,
 				D2153167202A3C1400F1879D /* Shopping_BasketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

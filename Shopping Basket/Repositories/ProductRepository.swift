@@ -6,6 +6,7 @@
 //  Copyright © 2018 Mateja Škrapec. All rights reserved.
 //
 
-protocol ProductRepository {
+protocol ProductRepository: class {
     func getAll() -> [Product]
+    func total() -> Int
 }

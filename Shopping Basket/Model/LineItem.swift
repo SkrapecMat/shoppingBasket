@@ -6,7 +6,11 @@
 //  Copyright © 2018 Mateja Škrapec. All rights reserved.
 //
 
-struct LineItem {
+class LineItem {
     let product: Product
-    var amount: Int
+    var amount: Int = 0
+
+    init(with product: Product) {
+        self.product = product
+    }
 }
