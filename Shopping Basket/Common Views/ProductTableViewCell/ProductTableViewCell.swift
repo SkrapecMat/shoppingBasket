@@ -8,7 +8,21 @@
 
 import UIKit
 
+protocol ProductTableViewCellDelegate: class {
+    func addOneItem(_ sender: ProductTableViewCell)
+    func removeOneItem(_ sender: ProductTableViewCell)
+    func removeProduct(_ sender: ProductTableViewCell)
+}
+
+//to make removeProduct optional to implement
+//without having to use @objc on the delegate
+extension ProductTableViewCellDelegate {
+    func removeProduct(_ sender: ProductTableViewCell) {}
+}
+
 class ProductTableViewCell: UITableViewCell {
+
+    weak var delegate: ProductTableViewCellDelegate?
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -42,12 +56,15 @@ class ProductTableViewCell: UITableViewCell {
     // MARK: Actions
 
     @IBAction func tappedAddOneItem(_ sender: Any) {
+        delegate?.addOneItem(self)
     }
 
     @IBAction func tappedRemoveOneItem(_ sender: Any) {
+        delegate?.removeOneItem(self)
     }
 
     @IBAction func tappedRemoveProduct(_ sender: Any) {
+        delegate?.removeProduct(self)
     }
 
     // MARK: Public
@@ -55,6 +72,10 @@ class ProductTableViewCell: UITableViewCell {
         productImageView.image = viewModel.image
         productNameLabel.text = viewModel.name
         productPriceLabel.text = viewModel.price
-        productAmountTextField.text = "\(viewModel.amount)"
+        productAmountTextField.text = viewModel.totalAmount
+    }
+
+    func setProductAmount(_ amount: Int) {
+        productAmountTextField.text = "\(amount)"
     }
 }

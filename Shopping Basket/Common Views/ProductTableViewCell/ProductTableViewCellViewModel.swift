@@ -11,12 +11,13 @@ import UIKit
 struct ProductTableViewCellViewModel {
     let name: String
     let price: String
-    var amount: Int = 0
     let image: UIImage?
+    let totalAmount: String
 
-    init(_ product: Product) {
+    init(_ product: Product, totalAmount: Int) {
         self.name = product.name
         self.image = product.image
         self.price = "\(product.price.amount) \(product.price.currency.isoCode)"
+        self.totalAmount = "\(totalAmount)"
     }
 }

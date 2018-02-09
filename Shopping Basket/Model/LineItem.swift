@@ -10,7 +10,8 @@ class LineItem {
     let product: Product
     var amount: Int = 0
 
-    init(with product: Product) {
+    init(with product: Product, amount: Int) {
         self.product = product
+        self.amount = amount
     }
 }

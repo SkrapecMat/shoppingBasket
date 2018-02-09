@@ -63,9 +63,43 @@ extension ProductListViewController: UITableViewDataSource {
         }
 
         let products = productRepository.getAll()
-        let viewModel = ProductTableViewCellViewModel(products[indexPath.row])
+        let product = products[indexPath.row]
+        let totalAmount = basket.getTotalAmountOfProduct(product)
+
+        let viewModel = ProductTableViewCellViewModel(product,
+                                                      totalAmount: totalAmount)
         cell.configure(with: viewModel)
+        cell.delegate = self
 
         return cell
+    }
+
+    // MARK: Helpers
+
+    fileprivate func getProduct(displayedBy cell: ProductTableViewCell) -> Product? {
+        guard let indexPath = productsTable.indexPath(for: cell) else {
+            return nil
+        }
+        let products = productRepository.getAll()
+
+        return products[indexPath.row]
+    }
+}
+
+extension ProductListViewController: ProductTableViewCellDelegate {
+    func addOneItem(_ sender: ProductTableViewCell) {
+        if let product = getProduct(displayedBy: sender) {
+            let totalProductAmount = basket.add(product: product)
+            sender.setProductAmount(totalProductAmount)
+            setTotalPrice()
+        }
+    }
+    
+    func removeOneItem(_ sender: ProductTableViewCell) {
+        if let product = getProduct(displayedBy: sender) {
+            let totalProductAmount = basket.remove(product: product)
+            sender.setProductAmount(totalProductAmount)
+            setTotalPrice()
+        }
     }
 }
