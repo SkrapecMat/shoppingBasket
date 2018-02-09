@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rI1-6l-ngM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rI1-6l-ngM" customClass="ProductTableView" customModule="Shopping_Basket" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="523"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -73,7 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rgz-tR-3pj"/>
                     <connections>
-                        <outlet property="productsTable" destination="rI1-6l-ngM" id="uvV-74-dHi"/>
+                        <outlet property="productsTable" destination="rI1-6l-ngM" id="qC8-Ku-R3D"/>
                         <outlet property="totalPriceLabel" destination="2Rq-Bg-lFw" id="gwz-X2-QPN"/>
                     </connections>
                 </viewController>
@@ -103,7 +103,7 @@
     <resources>
         <image name="basket_icon" width="80" height="80"/>
         <namedColor name="lightBackgroundColor">
-            <color red="0.90200001001358032" green="0.90200001001358032" blue="0.90200001001358032" alpha="0.60199999809265137" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="titleColor">
             <color red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
