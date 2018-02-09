@@ -23,6 +23,7 @@ class Basket {
             selectedItems.append(LineItem(with: product, amount: totalAmount))
         }
 
+        totalPriceInUSDollars.add(product.price)
         return totalAmount
     }
 
@@ -31,8 +32,10 @@ class Basket {
         if let lineItem = selectedItems.first(where: {product.uuid == $0.product.uuid}) {
             //if line item is in basket, decrease amount
             totalAmount = lineItem.amount - 1
+            //do recalculations only if amount > 0
             if totalAmount > 0 {
                 lineItem.amount = totalAmount
+                totalPriceInUSDollars.subtract(product.price)
             } else {
                 totalAmount = 0
             }

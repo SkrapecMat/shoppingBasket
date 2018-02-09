@@ -10,5 +10,17 @@ import UIKit
 
 struct Money {
     let currency: Currency
-    let amount: Decimal
+    var amount: Decimal
+
+    mutating func add(_ money: Money) {
+        if money.currency.isoCode == self.currency.isoCode {
+            amount += money.amount
+        }
+    }
+
+    mutating func subtract(_ money: Money) {
+        if money.currency.isoCode == self.currency.isoCode {
+            amount -= money.amount
+        }
+    }
 }
