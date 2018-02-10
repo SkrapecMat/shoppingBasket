@@ -10,28 +10,29 @@ import UIKit
 
 class JSONRatesCurrencyService: CurrencyService {
 
-    private var currencies: [Currency] = []
-    private var lastDownloadDate: Date?
     private let downloadTimeInterval: TimeInterval = 3600.0//60 minutes
 
     func getAvailableCurrencies(_ success: @escaping ([Currency]) -> Void,
                                 failure: @escaping (NetworkingError) -> Void) {
-        if self.lastDownloadDate == nil
-            || lastDownloadDate!.timeIntervalSinceNow > downloadTimeInterval {
+        if let lastDownloadDate = UserDefaults.getLastCurrenciesDownloadTime(),
+            abs(lastDownloadDate.timeIntervalSinceNow) < downloadTimeInterval,
+            let savedCurrencies = UserDefaults.getCurrencies() {
+
+            success(mapDictToCurrencyList(savedCurrencies))
+
+        } else {
 
             downloadCurrencies({ (currencies) in
-                self.currencies = currencies
-                success(currencies)
+                UserDefaults.saveCurrencies(currencies)
+                UserDefaults.saveLastCurrenciesDownloadTime(Date())
+                success(self.mapDictToCurrencyList(currencies))
             }, failure: { (error) in
                 failure(error)
             })
-
-        } else {
-            success(currencies)
         }
     }
 
-    private func downloadCurrencies(_ success: @escaping ([Currency]) -> Void,
+    private func downloadCurrencies(_ success: @escaping ([String: String]) -> Void,
                                     failure: @escaping (NetworkingError) -> Void) {
         let urlString = "\(NetworkingConstants.JSONRates.baseUrl)/list?access_key=\(NetworkingConstants.JSONRates.apiKey)"
 
@@ -45,13 +46,34 @@ class JSONRatesCurrencyService: CurrencyService {
 
         let task = session.dataTask(with: request,
                                     completionHandler: {data, response, error -> Void in
-            if error != nil {
-                self.lastDownloadDate = Date()
+            if error == nil {
+//                do {
+                    let decoder = JSONDecoder()
+                    do {
+                        let currencyDTO = try decoder.decode(CurrencyDTO.self, from: data!)
+                        success(currencyDTO.currencies)
+                    } catch {
+                        failure(NetworkingError())
+                    }
+//                    if let currenciesJSON = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: String] {
+//                        success((currenciesJSON as? [String: String])!)
+//                    } else {
+//                        failure(NetworkingError())
+//                    }
+//                } catch {
+//                    failure(NetworkingError())
+//                }
             } else {
                 failure(NetworkingError())
             }
         })
 
         task.resume()
+    }
+
+    private func mapDictToCurrencyList(_ currenciesDict: [String: String]) -> [Currency] {
+        return currenciesDict.map{ (isoCode, name) in
+            return Currency(name: name, isoCode: isoCode)
+        }
     }
 }

@@ -2,16 +2,14 @@
 //  CurrencyDTO.swift
 //  Shopping Basket
 //
-//  Created by Mateja Škrapec on 07/02/2018.
+//  Created by Mateja Škrapec on 10/02/2018.
 //  Copyright © 2018 Mateja Škrapec. All rights reserved.
 //
 
-class CurrencyDTO: Codable {
-    let currencies: [String:String]
+import Foundation
 
-    func mapToCurrencyList() -> [Currency] {
-        return currencies.map{ (isoCode, name) in
-            return Currency(name: name, isoCode: isoCode)
-        }
-    }
+class CurrencyDTO: Codable {
+    let terms: String
+    let privacy: String
+    let currencies: [String: String]
 }

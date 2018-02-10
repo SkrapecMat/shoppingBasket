@@ -15,18 +15,19 @@ class BasketViewController: UIViewController {
     @IBOutlet weak var checkoutButton: PrimaryButton!
 
     var basket: Basket?
+    var currencyService: CurrencyService?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarTitle()
         setTotalPrice()
-        setupTable()
+        setupTableDataSource()
 
         basketTable.productsDelegate = self
     }
 
     // MARK: Setup methods
-    private func setupTable() {
+    private func setupTableDataSource() {
         if let products = basket?.getProductsInBasket() {
             basketTable.reloadTable(withProducts: products)
         }
@@ -88,8 +89,10 @@ extension BasketViewController: ProductTableViewDelegate {
             return
         }
         if totalAmount == 0 {
-            setupTable()
+            //list item will be removed -> reload table with new datasource
+            setupTableDataSource()
         } else {
+            //reset product amount in table cells
             basketTable.setAmountForProducts(withUUID: product.uuid,
                                              amount: totalAmount)
         }
@@ -99,6 +102,6 @@ extension BasketViewController: ProductTableViewDelegate {
     func removeLineItem(ofProduct product: Product) {
         basket?.removeLineItem(ofProduct: product)
         setTotalPrice()
-        setupTable()
+        setupTableDataSource()
     }
 }

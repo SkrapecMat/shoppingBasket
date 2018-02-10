@@ -14,8 +14,8 @@ class ProductListViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var openBasketButton: PrimaryButton!
     
-    private var productRepository = InMemoryProductRepository()
-    private var basket = Basket()
+    private let productRepository = InMemoryProductRepository()
+    private let basket = Basket()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,12 @@ class ProductListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTable()
+        setupTableDataSource()
         setTotalPrice()
     }
 
     // MARK: Setup methods
-    private func setupTable() {
+    private func setupTableDataSource() {
         productsTable.reloadTable(withProducts: productRepository.getAll())
         productsTable.canRemoveProductFromList = false
     }
