@@ -10,25 +10,30 @@ import UIKit
 
 struct Money {
     let currency: Currency
-    var amount: Decimal
+    let amount: Decimal
 
-    mutating func add(_ money: Money) {
+    func add(_ money: Money) -> Money {
         if money.currency.isoCode == self.currency.isoCode {
-            amount += money.amount
+            return Money(currency: currency,
+                         amount: amount + money.amount)
         }
+        return money
     }
 
-    mutating func subtract(_ money: Money) {
+    func subtract(_ money: Money) -> Money {
         if money.currency.isoCode == self.currency.isoCode {
-            amount -= money.amount
+            return Money(currency: currency,
+                         amount: amount - money.amount)
         }
+        return money
     }
 
-    mutating func multiply(by multiplier: Int) {
-        amount *= Decimal(multiplier)
+    func multiply(by multiplier: Int) -> Money {
+        return Money(currency: currency,
+                     amount: amount * Decimal(multiplier))
     }
 
-    mutating func convert(to currency: Currency,
+    func convert(to currency: Currency,
                           withConversionRate rate: Decimal) -> Money {
         return Money(currency: currency,
                      amount: amount * rate)

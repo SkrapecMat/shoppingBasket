@@ -23,7 +23,7 @@ class Basket {
             selectedItems.append(LineItem(with: product, amount: totalAmount))
         }
 
-        totalPriceInUSDollars.add(product.price)
+        totalPriceInUSDollars = totalPriceInUSDollars.add(product.price)
         return totalAmount
     }
 
@@ -41,7 +41,7 @@ class Basket {
                 removeLineItem(ofProduct: product)
             } else {
                 lineItem.amount = totalAmount
-                totalPriceInUSDollars.subtract(product.price)
+                totalPriceInUSDollars = totalPriceInUSDollars.subtract(product.price)
             }
         }
 
@@ -70,8 +70,8 @@ class Basket {
         var sum = Money(currency: Currency.default, amount: 0)
         for item in selectedItems {
             var productPrice = item.product.price
-            productPrice.multiply(by: item.amount)
-            sum.add(productPrice)
+            let newPrice = productPrice.multiply(by: item.amount)
+            sum = sum.add(newPrice)
         }
 
         return sum
