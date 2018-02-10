@@ -42,7 +42,10 @@ class CheckoutViewController: UIViewController {
         currenciesTable.register(UINib(nibName: CheckoutTableViewCell.cellIdentifier(),
                             bundle: nil),
                       forCellReuseIdentifier: CheckoutTableViewCell.cellIdentifier())
+
         currenciesTable.dataSource = self
+        currenciesTable.delegate = self
+
         //to remove empty table lines
         currenciesTable.tableFooterView = UIView()
     }
@@ -66,9 +69,9 @@ class CheckoutViewController: UIViewController {
                 self?.currenciesTable.reloadData()
                 self?.hideSpinner()
             }
-        }) { (error) in
+        }) { [weak self] (error) in
             DispatchQueue.main.async {
-                self.hideSpinner()
+                self?.hideSpinner()
             }
         }
     }
@@ -82,11 +85,13 @@ class CheckoutViewController: UIViewController {
     private func showSpinner() {
         spinnerView.isHidden = false
         spinnerView.startAnimating()
+        view.isUserInteractionEnabled = false
     }
 
     private func hideSpinner() {
         spinnerView.stopAnimating()
         spinnerView.isHidden = true
+        view.isUserInteractionEnabled = true
     }
 }
 
@@ -105,5 +110,33 @@ extension CheckoutViewController: UITableViewDataSource {
         let viewModel = CheckoutTableViewCellViewModel(currencies[indexPath.row])
         cell.configure(withViewModel: viewModel)
         return cell
+    }
+}
+
+extension CheckoutViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+
+        guard var totalPrice = basket?.totalPriceInUSDollars else {
+            return
+        }
+
+        let convertToCurrency = currencies[indexPath.row]
+
+        showSpinner()
+        currencyService.getConversionRate(to: convertToCurrency.isoCode,
+            success: { [weak self] (rate) in
+            let convertedPrice = totalPrice.convert(to: convertToCurrency, withConversionRate: rate)
+
+            DispatchQueue.main.async {
+                self?.setupTotalPrice(price: convertedPrice)
+                self?.hideSpinner()
+            }
+
+        }) { [weak self] (error) in
+            DispatchQueue.main.async {
+                self?.hideSpinner()
+            }
+        }
     }
 }

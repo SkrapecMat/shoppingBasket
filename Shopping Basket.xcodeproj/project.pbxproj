@@ -79,6 +79,8 @@
 		D2EB4C08202F673100CE551E /* CurrencyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C06202F673100CE551E /* CurrencyDTO.swift */; };
 		D2EB4C0A202F71CB00CE551E /* LocalizedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C09202F71CB00CE551E /* LocalizedLabel.swift */; };
 		D2EB4C0B202F71CB00CE551E /* LocalizedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C09202F71CB00CE551E /* LocalizedLabel.swift */; };
+		D2EB4C14202F7C1000CE551E /* ConversionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C13202F7C1000CE551E /* ConversionDTO.swift */; };
+		D2EB4C15202F7C1000CE551E /* ConversionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C13202F7C1000CE551E /* ConversionDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,7 @@
 		D2EB4C03202F5AE700CE551E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2EB4C06202F673100CE551E /* CurrencyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDTO.swift; sourceTree = "<group>"; };
 		D2EB4C09202F71CB00CE551E /* LocalizedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedLabel.swift; sourceTree = "<group>"; };
+		D2EB4C13202F7C1000CE551E /* ConversionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +311,7 @@
 				D2AC4EC1202B7B5B005B6DE7 /* CurrencyService.swift */,
 				D2AC4EC4202B7C2E005B6DE7 /* JSONRatesCurrencyService.swift */,
 				D2EB4C06202F673100CE551E /* CurrencyDTO.swift */,
+				D2EB4C13202F7C1000CE551E /* ConversionDTO.swift */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -449,6 +453,7 @@
 				D2153188202A5EF400F1879D /* Basket.swift in Sources */,
 				D2A4720C202F2E0C0086DCCB /* CheckoutViewController.swift in Sources */,
 				D2EB4C07202F673100CE551E /* CurrencyDTO.swift in Sources */,
+				D2EB4C14202F7C1000CE551E /* ConversionDTO.swift in Sources */,
 				D2EB4BFD202F543700CE551E /* CheckoutTableViewCellViewModel.swift in Sources */,
 				D27CF693202E3FF800C0360E /* ProductTableViewCellViewModel.swift in Sources */,
 				D2153185202A5E2100F1879D /* Money.swift in Sources */,
@@ -487,6 +492,7 @@
 				D2AC4EC3202B7B5B005B6DE7 /* CurrencyService.swift in Sources */,
 				D2A4720D202F2E0C0086DCCB /* CheckoutViewController.swift in Sources */,
 				D2EB4C08202F673100CE551E /* CurrencyDTO.swift in Sources */,
+				D2EB4C15202F7C1000CE551E /* ConversionDTO.swift in Sources */,
 				D2EB4BFE202F543700CE551E /* CheckoutTableViewCellViewModel.swift in Sources */,
 				D27CF694202E3FF800C0360E /* ProductTableViewCellViewModel.swift in Sources */,
 				D2153189202A5EF400F1879D /* Basket.swift in Sources */,

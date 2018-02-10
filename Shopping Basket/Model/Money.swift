@@ -28,6 +28,12 @@ struct Money {
         amount *= Decimal(multiplier)
     }
 
+    mutating func convert(to currency: Currency,
+                          withConversionRate rate: Decimal) -> Money {
+        return Money(currency: currency,
+                     amount: amount * rate)
+    }
+
     func equalsZero() -> Bool {
         return amount == 0
     }
