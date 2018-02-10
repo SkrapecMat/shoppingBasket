@@ -24,6 +24,10 @@ struct Money {
         }
     }
 
+    mutating func multiply(by multiplier: Int) {
+        amount *= Decimal(multiplier)
+    }
+
     func equalsZero() -> Bool {
         return amount == 0
     }

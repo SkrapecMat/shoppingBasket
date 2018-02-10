@@ -14,7 +14,6 @@ class BasketViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var checkoutButton: PrimaryButton!
 
-    var productRepository: InMemoryProductRepository?
     var basket: Basket?
 
     override func viewDidLoad() {
@@ -28,7 +27,7 @@ class BasketViewController: UIViewController {
 
     // MARK: Setup methods
     private func setupTable() {
-        if let products = productRepository?.getAll() {
+        if let products = basket?.getProductsInBasket() {
             basketTable.reloadTable(withProducts: products)
         }
     }
@@ -73,5 +72,11 @@ extension BasketViewController: ProductTableViewDelegate {
         basketTable.setAmountForProducts(withUUID: product.uuid,
                                            amount: totalAmount)
         setTotalPrice()
+    }
+
+    func removeLineItem(ofProduct product: Product) {
+        basket?.removeLineItem(ofProduct: product)
+        setTotalPrice()
+        setupTable()
     }
 }

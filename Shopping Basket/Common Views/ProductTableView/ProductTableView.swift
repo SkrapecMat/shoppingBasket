@@ -12,6 +12,13 @@ protocol ProductTableViewDelegate: class {
     func getTotalAmountOfProduct(_ product: Product) -> Int
     func addProductToBasket(_ product: Product)
     func removeProductFromBasket(_ product: Product)
+    func removeLineItem(ofProduct product: Product)
+}
+
+//extension so we don't have to always implement removeLineItem
+//and also not use @objc protocols
+extension ProductTableViewDelegate {
+    func removeLineItem(ofProduct product: Product) {}
 }
 
 class ProductTableView: UITableView {
@@ -95,6 +102,12 @@ extension ProductTableView: UITableViewDataSource {
 }
 
 extension ProductTableView: ProductTableViewCellDelegate {
+    func removeProduct(_ sender: ProductTableViewCell) {
+        if let product = getProduct(displayedBy: sender) {
+            productsDelegate?.removeLineItem(ofProduct: product)
+        }
+    }
+
     func addOneItem(_ sender: ProductTableViewCell) {
         if let product = getProduct(displayedBy: sender) {
             productsDelegate?.addProductToBasket(product)

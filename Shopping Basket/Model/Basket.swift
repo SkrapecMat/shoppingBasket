@@ -50,4 +50,26 @@ class Basket {
         }
         return 0
     }
+
+    func getProductsInBasket() -> [Product] {
+        return selectedItems.map({ return $0.product })
+    }
+
+    func removeLineItem(ofProduct product: Product) {
+        selectedItems = selectedItems.filter({ $0.product.uuid != product.uuid })
+        totalPriceInUSDollars = calculateTotalPrice()
+    }
+
+    // MARK: Private methods
+
+    private func calculateTotalPrice() -> Money {
+        var sum = Money(currency: Currency.default, amount: 0)
+        for item in selectedItems {
+            var productPrice = item.product.price
+            productPrice.multiply(by: item.amount)
+            sum.add(productPrice)
+        }
+
+        return sum
+    }
 }

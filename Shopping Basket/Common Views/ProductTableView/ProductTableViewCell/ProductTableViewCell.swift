@@ -14,12 +14,6 @@ protocol ProductTableViewCellDelegate: class {
     func removeProduct(_ sender: ProductTableViewCell)
 }
 
-//to make removeProduct optional to implement
-//without having to use @objc on the delegate
-extension ProductTableViewCellDelegate {
-    func removeProduct(_ sender: ProductTableViewCell) {}
-}
-
 class ProductTableViewCell: UITableViewCell {
 
     weak var delegate: ProductTableViewCellDelegate?

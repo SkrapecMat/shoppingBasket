@@ -51,16 +51,15 @@ class ProductListViewController: UIViewController {
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
         if identifier == "BasketSegue"
-            && !basket.totalPriceInUSDollars.equalsZero() {
-            return true
+            && basket.totalPriceInUSDollars.equalsZero() {
+            return false
         }
-        return false
+        return true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let basketVC = segue.destination as? BasketViewController {
             basketVC.basket = basket
-            basketVC.productRepository = productRepository
         }
     }
 }
