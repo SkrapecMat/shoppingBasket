@@ -9,6 +9,14 @@
 import UIKit
 
 class PrimaryButton: UIButton {
+
+    @IBInspectable var localizedStringKey: String = "" {
+        didSet {
+            let text = NSLocalizedString(localizedStringKey, comment: "")
+            self.setTitle(text, for: .normal)
+        }
+    }
+
     override var isEnabled: Bool {
         didSet {
             if isEnabled {

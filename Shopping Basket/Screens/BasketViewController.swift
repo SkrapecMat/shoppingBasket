@@ -69,8 +69,12 @@ extension BasketViewController: ProductTableViewDelegate {
         guard let totalAmount = basket?.remove(product: product) else {
             return
         }
-        basketTable.setAmountForProducts(withUUID: product.uuid,
-                                           amount: totalAmount)
+        if totalAmount == 0 {
+            setupTable()
+        } else {
+            basketTable.setAmountForProducts(withUUID: product.uuid,
+                                             amount: totalAmount)
+        }
         setTotalPrice()
     }
 

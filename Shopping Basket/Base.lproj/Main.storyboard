@@ -50,6 +50,9 @@
                                         <state key="normal" title="Open basket">
                                             <color key="titleColor" name="lightBackgroundColor"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedStringKey" value="PRODUCT_LIST_VC__OPEN_BASKET"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="s1M-Ej-LV4" kind="show" identifier="BasketSegue" id="hWr-4O-4Gv"/>
                                         </connections>
@@ -117,6 +120,9 @@
                                         <state key="normal" title="Checkout">
                                             <color key="titleColor" name="lightBackgroundColor"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedStringKey" value="BASKET_VC__CHECKOUT"/>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="lightBackgroundColor"/>

@@ -30,14 +30,18 @@ class Basket {
     func remove(product: Product) -> Int {
         var totalAmount = 0
         if let lineItem = selectedItems.first(where: {product.uuid == $0.product.uuid}) {
+            if lineItem.amount == 0 {
+                return totalAmount
+            }
             //if line item is in basket, decrease amount
             totalAmount = lineItem.amount - 1
-            //do recalculations only if amount > 0
-            if totalAmount >= 0 {
+
+            //if amount is 0, remove whole line item
+            if totalAmount == 0 {
+                removeLineItem(ofProduct: product)
+            } else {
                 lineItem.amount = totalAmount
                 totalPriceInUSDollars.subtract(product.price)
-            } else {
-                totalAmount = 0
             }
         }
 
