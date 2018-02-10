@@ -193,6 +193,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedStringKey" value="CHECKOUT_VC__LIST_TITLE"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="J5l-aY-zkA">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" name="titleColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -201,6 +205,8 @@
                             <constraint firstItem="ZAd-Dh-Lhu" firstAttribute="top" secondItem="XWo-Bj-Ybu" secondAttribute="bottom" constant="70" id="KDT-CL-rY8"/>
                             <constraint firstItem="a60-7i-ebe" firstAttribute="bottom" secondItem="4Fh-1S-jVe" secondAttribute="bottom" id="MLR-of-mxD"/>
                             <constraint firstItem="4Fh-1S-jVe" firstAttribute="top" secondItem="ZAd-Dh-Lhu" secondAttribute="bottom" constant="10" id="QBQ-vP-luC"/>
+                            <constraint firstItem="J5l-aY-zkA" firstAttribute="centerX" secondItem="hMH-hD-6Nw" secondAttribute="centerX" id="W3Y-v4-d2P"/>
+                            <constraint firstItem="J5l-aY-zkA" firstAttribute="centerY" secondItem="hMH-hD-6Nw" secondAttribute="centerY" id="gd5-ia-NUr"/>
                             <constraint firstItem="a60-7i-ebe" firstAttribute="trailing" secondItem="4Fh-1S-jVe" secondAttribute="trailing" id="lry-PE-bKf"/>
                             <constraint firstItem="a60-7i-ebe" firstAttribute="trailing" secondItem="ZAd-Dh-Lhu" secondAttribute="trailing" constant="20" id="w3s-TY-dC0"/>
                             <constraint firstItem="ZAd-Dh-Lhu" firstAttribute="leading" secondItem="a60-7i-ebe" secondAttribute="leading" constant="20" id="x5t-hg-ozy"/>
@@ -218,6 +224,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="currenciesTable" destination="4Fh-1S-jVe" id="Ihp-or-mPT"/>
+                        <outlet property="spinnerView" destination="J5l-aY-zkA" id="7kU-MV-5A5"/>
                         <outlet property="totalPriceLabel" destination="XWo-Bj-Ybu" id="G3C-p1-bQY"/>
                     </connections>
                 </viewController>

@@ -12,6 +12,9 @@ class CheckoutViewController: UIViewController {
 
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var currenciesTable: UITableView!
+    @IBOutlet weak var spinnerView: UIActivityIndicatorView!
+
+    private let currencyService = JSONRatesCurrencyService()
 
     var basket: Basket?
     private var currencies: [Currency] = [] {
@@ -30,6 +33,8 @@ class CheckoutViewController: UIViewController {
 
         setupTable()
         fetchCurrencies()
+
+        spinnerView.isHidden = true
     }
 
     // MARK: Setup methods
@@ -38,6 +43,8 @@ class CheckoutViewController: UIViewController {
                             bundle: nil),
                       forCellReuseIdentifier: CheckoutTableViewCell.cellIdentifier())
         currenciesTable.dataSource = self
+        //to remove empty table lines
+        currenciesTable.tableFooterView = UIView()
     }
 
     private func setupTotalPrice(price: Money) {
@@ -52,19 +59,34 @@ class CheckoutViewController: UIViewController {
 
     // MARK: Networking
     private func fetchCurrencies() {
-        let currencyService = JSONRatesCurrencyService()
+        showSpinner()
         currencyService.getAvailableCurrencies({ [weak self] (currencies) in
             self?.currencies = currencies
             DispatchQueue.main.async {
                 self?.currenciesTable.reloadData()
+                self?.hideSpinner()
             }
         }) { (error) in
-
+            DispatchQueue.main.async {
+                self.hideSpinner()
+            }
         }
     }
 
+    // MARK: Actions
     @IBAction func pressedClose(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    // MARK: Spinner methods
+    private func showSpinner() {
+        spinnerView.isHidden = false
+        spinnerView.startAnimating()
+    }
+
+    private func hideSpinner() {
+        spinnerView.stopAnimating()
+        spinnerView.isHidden = true
     }
 }
 
