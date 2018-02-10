@@ -124,7 +124,6 @@ class JSONRatesCurrencyService: CurrencyService {
         task.resume()
     }
 
-
     // MARK: Helpers
     private func mapDictToCurrencyList(_ currenciesDict: [String: String]) -> [Currency] {
         return currenciesDict.map{ (isoCode, name) in

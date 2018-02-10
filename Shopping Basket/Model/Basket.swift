@@ -69,7 +69,7 @@ class Basket {
     private func calculateTotalPrice() -> Money {
         var sum = Money(currency: Currency.default, amount: 0)
         for item in selectedItems {
-            var productPrice = item.product.price
+            let productPrice = item.product.price
             let newPrice = productPrice.multiply(by: item.amount)
             sum = sum.add(newPrice)
         }

@@ -5,9 +5,16 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MarkerFeltThin.ttf">
+            <string>MarkerFelt-Thin</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -16,7 +23,29 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basket_in_circle_image" translatesAutoresizingMaskIntoConstraints="NO" id="DPS-md-pgP">
+                                <rect key="frame" x="40" y="205" width="295" height="257"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DPS-md-pgP" secondAttribute="height" multiplier="1.15:1" id="v7J-Vl-bIS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping basket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvh-Iz-8Co">
+                                <rect key="frame" x="94.5" y="497.5" width="186" height="31"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
+                                <color key="textColor" name="primaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DPS-md-pgP" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="40" id="0jz-3y-ATQ"/>
+                            <constraint firstAttribute="trailing" secondItem="DPS-md-pgP" secondAttribute="trailing" constant="40" id="37N-7L-Nyu"/>
+                            <constraint firstItem="DPS-md-pgP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="38a-QT-WPz"/>
+                            <constraint firstItem="DPS-md-pgP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LhI-xl-Ohv"/>
+                            <constraint firstItem="Lvh-Iz-8Co" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gOC-9w-Omu"/>
+                            <constraint firstItem="Lvh-Iz-8Co" firstAttribute="top" secondItem="DPS-md-pgP" secondAttribute="bottom" constant="35" id="xaV-EJ-snj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +54,10 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="basket_in_circle_image" width="400" height="349"/>
+        <namedColor name="primaryTextColor">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>
