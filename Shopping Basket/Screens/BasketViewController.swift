@@ -12,6 +12,7 @@ class BasketViewController: UIViewController {
 
     @IBOutlet weak var basketTable: ProductTableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var checkoutButton: PrimaryButton!
 
     var productRepository: InMemoryProductRepository?
     var basket: Basket?
@@ -33,7 +34,12 @@ class BasketViewController: UIViewController {
     }
 
     private func setTotalPrice() {
-        totalPriceLabel.text = basket?.totalPriceInUSDollars.toString()
+        guard let totalPrice = basket?.totalPriceInUSDollars else {
+            return
+        }
+
+        totalPriceLabel.text = totalPrice.toString()
+        checkoutButton.isEnabled = !totalPrice.equalsZero()
     }
 
     // MARK: UI methods

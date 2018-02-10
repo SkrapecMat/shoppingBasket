@@ -13,11 +13,14 @@ struct ProductTableViewCellViewModel {
     let price: String
     let image: UIImage?
     let totalAmount: String
+    let canRemoveProductFromList: Bool
 
-    init(_ product: Product, totalAmount: Int) {
+    init(_ product: Product, totalAmount: Int,
+         canRemoveProductFromList: Bool) {
         self.name = product.name
         self.image = product.image
         self.price = "\(product.price.amount) \(product.price.currency.isoCode)"
         self.totalAmount = "\(totalAmount)"
+        self.canRemoveProductFromList = canRemoveProductFromList
     }
 }

@@ -73,6 +73,7 @@ class ProductTableViewCell: UITableViewCell {
         productNameLabel.text = viewModel.name
         productPriceLabel.text = viewModel.price
         productAmountTextField.text = viewModel.totalAmount
+        removeProductButton.isHidden = !viewModel.canRemoveProductFromList
     }
 
     func setProductAmount(_ amount: Int) {

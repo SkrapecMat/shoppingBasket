@@ -20,6 +20,8 @@ class ProductTableView: UITableView {
 
     private var products: [Product] = []
 
+    var canRemoveProductFromList: Bool = true
+
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
         setupTable()
@@ -74,7 +76,8 @@ extension ProductTableView: UITableViewDataSource {
         }
 
         let viewModel = ProductTableViewCellViewModel(product,
-                                                      totalAmount: totalAmount)
+                                                      totalAmount: totalAmount,
+                                                      canRemoveProductFromList: canRemoveProductFromList)
         cell.configure(with: viewModel)
         cell.delegate = self
 

@@ -12,7 +12,8 @@ class ProductListViewController: UIViewController {
 
     @IBOutlet weak var productsTable: ProductTableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
-
+    @IBOutlet weak var openBasketButton: PrimaryButton!
+    
     private var productRepository = InMemoryProductRepository()
     private var basket = Basket()
 
@@ -32,10 +33,12 @@ class ProductListViewController: UIViewController {
     // MARK: Setup methods
     private func setupTable() {
         productsTable.reloadTable(withProducts: productRepository.getAll())
+        productsTable.canRemoveProductFromList = false
     }
 
     private func setTotalPrice() {
         totalPriceLabel.text = basket.totalPriceInUSDollars.toString()
+        openBasketButton.isEnabled = !basket.totalPriceInUSDollars.equalsZero()
     }
 
     // MARK: UI methods

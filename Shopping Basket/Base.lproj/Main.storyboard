@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
         <array key="MarkerFeltThin.ttf">
             <string>MarkerFelt-Thin</string>
         </array>
@@ -31,31 +34,35 @@
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-Bg-lFw">
-                                        <rect key="frame" x="30" y="29.5" width="257" height="22"/>
+                                        <rect key="frame" x="30" y="29.5" width="180" height="22"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPO-zW-OiN">
-                                        <rect key="frame" x="295" y="15" width="50" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sje-E7-o5v" customClass="PrimaryButton" customModule="Shopping_Basket" customModuleProvider="target">
+                                        <rect key="frame" x="225" y="20" width="120" height="40"/>
+                                        <color key="backgroundColor" name="secondaryTextColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="4oE-iR-pmW"/>
-                                            <constraint firstAttribute="height" constant="50" id="mvL-7j-7bt"/>
+                                            <constraint firstAttribute="width" constant="120" id="Qgh-CY-6Kw"/>
+                                            <constraint firstAttribute="height" constant="40" id="kKJ-Hc-b3h"/>
                                         </constraints>
-                                        <state key="normal" image="basket_icon"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Open basket">
+                                            <color key="titleColor" name="lightBackgroundColor"/>
+                                        </state>
                                         <connections>
-                                            <segue destination="s1M-Ej-LV4" kind="show" identifier="BasketSegue" id="sWf-uJ-Fdt"/>
+                                            <segue destination="s1M-Ej-LV4" kind="show" identifier="BasketSegue" id="hWr-4O-4Gv"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="lightBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="lPO-zW-OiN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="2Rq-Bg-lFw" secondAttribute="trailing" constant="8" symbolic="YES" id="KRH-iM-5G9"/>
                                     <constraint firstItem="2Rq-Bg-lFw" firstAttribute="centerY" secondItem="ZeQ-Xa-Mhr" secondAttribute="centerY" id="Oh6-tx-NWP"/>
-                                    <constraint firstItem="lPO-zW-OiN" firstAttribute="centerY" secondItem="ZeQ-Xa-Mhr" secondAttribute="centerY" id="TmE-bd-ut2"/>
-                                    <constraint firstAttribute="trailing" secondItem="lPO-zW-OiN" secondAttribute="trailing" constant="30" id="U3x-2N-ueV"/>
                                     <constraint firstAttribute="height" constant="80" id="UYA-Y7-Q36"/>
+                                    <constraint firstAttribute="trailing" secondItem="sje-E7-o5v" secondAttribute="trailing" constant="30" id="Xb9-9z-a6v"/>
+                                    <constraint firstItem="sje-E7-o5v" firstAttribute="centerY" secondItem="ZeQ-Xa-Mhr" secondAttribute="centerY" id="Z4D-fG-QJz"/>
                                     <constraint firstItem="2Rq-Bg-lFw" firstAttribute="leading" secondItem="ZeQ-Xa-Mhr" secondAttribute="leading" constant="30" id="f6d-Hw-Hl6"/>
+                                    <constraint firstItem="sje-E7-o5v" firstAttribute="leading" relation="lessThanOrEqual" secondItem="2Rq-Bg-lFw" secondAttribute="trailing" constant="15" id="y0o-Ej-zNK"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -73,6 +80,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rgz-tR-3pj"/>
                     <connections>
+                        <outlet property="openBasketButton" destination="sje-E7-o5v" id="wdr-m1-8kS"/>
                         <outlet property="productsTable" destination="rI1-6l-ngM" id="qC8-Ku-R3D"/>
                         <outlet property="totalPriceLabel" destination="2Rq-Bg-lFw" id="gwz-X2-QPN"/>
                     </connections>
@@ -93,17 +101,32 @@
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-lh-f4K">
-                                        <rect key="frame" x="30" y="29.5" width="47" height="22"/>
+                                        <rect key="frame" x="30" y="29.5" width="200" height="22"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ6-2G-1Tk" customClass="PrimaryButton" customModule="Shopping_Basket" customModuleProvider="target">
+                                        <rect key="frame" x="245" y="20" width="100" height="40"/>
+                                        <color key="backgroundColor" name="titleColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Aex-Lh-TV7"/>
+                                            <constraint firstAttribute="width" constant="100" id="Rwc-oQ-Tb2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Checkout">
+                                            <color key="titleColor" name="lightBackgroundColor"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="lightBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="dJ6-2G-1Tk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="F3e-lh-f4K" secondAttribute="trailing" constant="15" id="hlk-l2-YiE"/>
                                     <constraint firstAttribute="height" constant="80" id="ju6-8B-Ism"/>
                                     <constraint firstItem="F3e-lh-f4K" firstAttribute="leading" secondItem="5N7-mF-Vl0" secondAttribute="leading" constant="30" id="lxh-XR-34K"/>
+                                    <constraint firstItem="dJ6-2G-1Tk" firstAttribute="centerY" secondItem="5N7-mF-Vl0" secondAttribute="centerY" id="mxo-Rq-ecL"/>
                                     <constraint firstItem="F3e-lh-f4K" firstAttribute="centerY" secondItem="5N7-mF-Vl0" secondAttribute="centerY" id="nI2-2P-yFE"/>
+                                    <constraint firstAttribute="trailing" secondItem="dJ6-2G-1Tk" secondAttribute="trailing" constant="30" id="qfX-5z-AIn"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mq5-2o-35b" customClass="ProductTableView" customModule="Shopping_Basket" customModuleProvider="target">
@@ -126,6 +149,7 @@
                     <navigationItem key="navigationItem" title="Your Basket" id="gFc-2n-VG3"/>
                     <connections>
                         <outlet property="basketTable" destination="mq5-2o-35b" id="KcZ-xG-Oou"/>
+                        <outlet property="checkoutButton" destination="dJ6-2G-1Tk" id="Juw-EO-Y5c"/>
                         <outlet property="totalPriceLabel" destination="F3e-lh-f4K" id="6un-Ur-7fd"/>
                     </connections>
                 </viewController>
@@ -153,9 +177,20 @@
         </scene>
     </scenes>
     <resources>
-        <image name="basket_icon" width="80" height="80"/>
         <namedColor name="lightBackgroundColor">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightBackgroundColor">
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightBackgroundColor">
+            <color red="0.976000011" green="0.976000011" blue="0.976000011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondaryTextColor">
+            <color red="0.70200002193450928" green="0.70200002193450928" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="titleColor">
+            <color red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="titleColor">
             <color red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

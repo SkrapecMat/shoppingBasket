@@ -47,6 +47,8 @@
 		D27CF694202E3FF800C0360E /* ProductTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CF68C202E3FF700C0360E /* ProductTableViewCellViewModel.swift */; };
 		D27CF696202E403F00C0360E /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CF695202E403F00C0360E /* BasketViewController.swift */; };
 		D27CF697202E403F00C0360E /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CF695202E403F00C0360E /* BasketViewController.swift */; };
+		D2A47209202EFC9F0086DCCB /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A47208202EFC9F0086DCCB /* PrimaryButton.swift */; };
+		D2A4720A202EFC9F0086DCCB /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A47208202EFC9F0086DCCB /* PrimaryButton.swift */; };
 		D2AC4E9B202B5505005B6DE7 /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC4E9A202B5505005B6DE7 /* LineItem.swift */; };
 		D2AC4E9C202B5505005B6DE7 /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC4E9A202B5505005B6DE7 /* LineItem.swift */; };
 		D2AC4EB5202B6B03005B6DE7 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC4EB4202B6B03005B6DE7 /* ProductRepository.swift */; };
@@ -102,6 +104,7 @@
 		D27CF68B202E3FF700C0360E /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		D27CF68C202E3FF700C0360E /* ProductTableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		D27CF695202E403F00C0360E /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		D2A47208202EFC9F0086DCCB /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		D2AC4E9A202B5505005B6DE7 /* LineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineItem.swift; sourceTree = "<group>"; };
 		D2AC4EB4202B6B03005B6DE7 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		D2AC4EB7202B7239005B6DE7 /* InMemoryProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryProductRepository.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 			children = (
 				D27CF687202E3FF700C0360E /* ProductTableView */,
 				D2C7EF35202E516500573052 /* NavItemTitleView.swift */,
+				D2A47208202EFC9F0086DCCB /* PrimaryButton.swift */,
 			);
 			path = "Common Views";
 			sourceTree = "<group>";
@@ -189,7 +193,6 @@
 				D215317D202A5D4B00F1879D /* Model */,
 				D20EBADF202B9F60007B699C /* Screens */,
 				D2153155202A3C1400F1879D /* Main.storyboard */,
-				D2153158202A3C1400F1879D /* Assets.xcassets */,
 				D215315D202A3C1400F1879D /* Info.plist */,
 			);
 			path = "Shopping Basket";
@@ -207,6 +210,7 @@
 		D2153171202A3CD200F1879D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D2153158202A3C1400F1879D /* Assets.xcassets */,
 				D2153151202A3C1400F1879D /* AppDelegate.swift */,
 				D215315A202A3C1400F1879D /* LaunchScreen.storyboard */,
 				D20EBAD3202B9B0E007B699C /* Localizable.strings */,
@@ -394,6 +398,7 @@
 				D2AC4EC9202B7F26005B6DE7 /* CurrencyDTO.swift in Sources */,
 				D23B7051202CE70D00735E6D /* UINavigationItem+AttributedTitle.swift in Sources */,
 				D27CF68D202E3FF700C0360E /* ProductTableView.swift in Sources */,
+				D2A47209202EFC9F0086DCCB /* PrimaryButton.swift in Sources */,
 				D2153188202A5EF400F1879D /* Basket.swift in Sources */,
 				D27CF693202E3FF800C0360E /* ProductTableViewCellViewModel.swift in Sources */,
 				D2153185202A5E2100F1879D /* Money.swift in Sources */,
@@ -425,6 +430,7 @@
 				D2AC4EB6202B6B03005B6DE7 /* ProductRepository.swift in Sources */,
 				D23B7052202CE70D00735E6D /* UINavigationItem+AttributedTitle.swift in Sources */,
 				D27CF68E202E3FF700C0360E /* ProductTableView.swift in Sources */,
+				D2A4720A202EFC9F0086DCCB /* PrimaryButton.swift in Sources */,
 				D2AC4EC3202B7B5B005B6DE7 /* CurrencyService.swift in Sources */,
 				D27CF694202E3FF800C0360E /* ProductTableViewCellViewModel.swift in Sources */,
 				D2153189202A5EF400F1879D /* Basket.swift in Sources */,
