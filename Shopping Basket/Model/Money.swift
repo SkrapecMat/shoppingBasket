@@ -23,4 +23,8 @@ struct Money {
             amount -= money.amount
         }
     }
+
+    func equalsZero() -> Bool {
+        return amount == 0
+    }
 }

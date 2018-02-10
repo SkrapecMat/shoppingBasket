@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-Bg-lFw">
-                                        <rect key="frame" x="30" y="29.5" width="255" height="22"/>
+                                        <rect key="frame" x="30" y="29.5" width="257" height="22"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
@@ -44,13 +44,13 @@
                                         </constraints>
                                         <state key="normal" image="basket_icon"/>
                                         <connections>
-                                            <action selector="didPressToBasket:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CJR-g3-PoM"/>
+                                            <segue destination="s1M-Ej-LV4" kind="show" identifier="BasketSegue" id="sWf-uJ-Fdt"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="lightBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="lPO-zW-OiN" firstAttribute="leading" secondItem="2Rq-Bg-lFw" secondAttribute="trailing" constant="10" id="KRH-iM-5G9"/>
+                                    <constraint firstItem="lPO-zW-OiN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="2Rq-Bg-lFw" secondAttribute="trailing" constant="8" symbolic="YES" id="KRH-iM-5G9"/>
                                     <constraint firstItem="2Rq-Bg-lFw" firstAttribute="centerY" secondItem="ZeQ-Xa-Mhr" secondAttribute="centerY" id="Oh6-tx-NWP"/>
                                     <constraint firstItem="lPO-zW-OiN" firstAttribute="centerY" secondItem="ZeQ-Xa-Mhr" secondAttribute="centerY" id="TmE-bd-ut2"/>
                                     <constraint firstAttribute="trailing" secondItem="lPO-zW-OiN" secondAttribute="trailing" constant="30" id="U3x-2N-ueV"/>
@@ -80,6 +80,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="492.50374812593708"/>
+        </scene>
+        <!--Your Basket-->
+        <scene sceneID="vxS-9n-UoT">
+            <objects>
+                <viewController id="s1M-Ej-LV4" customClass="BasketViewController" customModule="Shopping_Basket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G92-P3-L0Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5N7-mF-Vl0">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-lh-f4K">
+                                        <rect key="frame" x="30" y="29.5" width="47" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <color key="textColor" name="titleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="lightBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ju6-8B-Ism"/>
+                                    <constraint firstItem="F3e-lh-f4K" firstAttribute="leading" secondItem="5N7-mF-Vl0" secondAttribute="leading" constant="30" id="lxh-XR-34K"/>
+                                    <constraint firstItem="F3e-lh-f4K" firstAttribute="centerY" secondItem="5N7-mF-Vl0" secondAttribute="centerY" id="nI2-2P-yFE"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mq5-2o-35b" customClass="ProductTableView" customModule="Shopping_Basket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mq5-2o-35b" firstAttribute="trailing" secondItem="Uda-eG-oJT" secondAttribute="trailing" id="1Ga-8E-Qoo"/>
+                            <constraint firstItem="mq5-2o-35b" firstAttribute="leading" secondItem="Uda-eG-oJT" secondAttribute="leading" id="AE8-8G-Km5"/>
+                            <constraint firstItem="5N7-mF-Vl0" firstAttribute="leading" secondItem="Uda-eG-oJT" secondAttribute="leading" id="ZRZ-GY-8lp"/>
+                            <constraint firstItem="5N7-mF-Vl0" firstAttribute="bottom" secondItem="Uda-eG-oJT" secondAttribute="bottom" id="bzz-Ww-oxl"/>
+                            <constraint firstItem="5N7-mF-Vl0" firstAttribute="top" secondItem="mq5-2o-35b" secondAttribute="bottom" id="tod-8y-OYT"/>
+                            <constraint firstItem="mq5-2o-35b" firstAttribute="top" secondItem="G92-P3-L0Q" secondAttribute="top" id="yB8-hN-D8d"/>
+                            <constraint firstItem="5N7-mF-Vl0" firstAttribute="trailing" secondItem="Uda-eG-oJT" secondAttribute="trailing" id="zOT-FV-DuW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uda-eG-oJT"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Your Basket" id="gFc-2n-VG3"/>
+                    <connections>
+                        <outlet property="basketTable" destination="mq5-2o-35b" id="KcZ-xG-Oou"/>
+                        <outlet property="totalPriceLabel" destination="F3e-lh-f4K" id="6un-Ur-7fd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cV0-ba-wRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1868" y="496"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="abP-Hi-rMy">

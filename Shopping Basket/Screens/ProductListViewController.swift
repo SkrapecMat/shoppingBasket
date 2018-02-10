@@ -19,7 +19,6 @@ class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarTitle()
-        setTotalPrice()
 
         productsTable.productsDelegate = self
     }
@@ -27,6 +26,7 @@ class ProductListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTable()
+        setTotalPrice()
     }
 
     // MARK: Setup methods
@@ -40,13 +40,25 @@ class ProductListViewController: UIViewController {
 
     // MARK: UI methods
     private func setNavBarTitle() {
-        self.navigationController?.setupTitle(withTitle:
+        self.navigationItem.setupTitle(withText:
             NSLocalizedString("PRODUCT_LIST_VC__TITLE", comment: ""))
     }
 
-    // MARK: Actions
-    @IBAction func didPressToBasket(_ sender: UIButton) {
+    // MARK: Segue methods
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool {
+        if identifier == "BasketSegue"
+            && !basket.totalPriceInUSDollars.equalsZero() {
+            return true
+        }
+        return false
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let basketVC = segue.destination as? BasketViewController {
+            basketVC.basket = basket
+            basketVC.productRepository = productRepository
+        }
     }
 }
 
