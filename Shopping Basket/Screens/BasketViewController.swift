@@ -46,6 +46,24 @@ class BasketViewController: UIViewController {
         self.navigationItem.setupTitle(withText:
             NSLocalizedString("BASKET_VC__TITLE", comment: ""))
     }
+
+    // MARK: Segue methods
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool {
+        if identifier == "CheckoutSegue",
+            let totalPrice = basket?.totalPriceInUSDollars,
+            totalPrice.equalsZero() {
+            return false
+        }
+        return true
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navVC = segue.destination as? UINavigationController,
+            let checkoutVC = navVC.topViewController as? CheckoutViewController {
+            checkoutVC.basket = basket
+        }
+    }
 }
 
 extension BasketViewController: ProductTableViewDelegate {
