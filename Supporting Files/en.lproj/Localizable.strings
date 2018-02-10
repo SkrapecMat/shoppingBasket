@@ -27,6 +27,7 @@
 //CHECKOUT VIEW CONTROLLER
 "CHECKOUT_VC__TITLE" = "Total price";
 "CHECKOUT_VC__LIST_TITLE" = "Convert total price to:";
+"CHECKOUT_VC__SEARCH_TEXT" = "Search by name or iso code";
 
 //ERRORS
 "GENERAL_ERROR_ALERT_TITLE" = "Oops";

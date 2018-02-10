@@ -13,8 +13,12 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var currenciesTable: UITableView!
     @IBOutlet weak var spinnerView: UIActivityIndicatorView!
+    @IBOutlet weak var searchWrapperView: UIView!
 
     private let currencyService = JSONRatesCurrencyService()
+
+    private let searchController = UISearchController(
+        searchResultsController: nil)
 
     var basket: Basket?
     private var currencies: [Currency] = [] {
@@ -22,6 +26,7 @@ class CheckoutViewController: UIViewController {
             currencies.sort { $0.isoCode < $1.isoCode }
         }
     }
+    private var filteredCurrencies: [Currency] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +38,7 @@ class CheckoutViewController: UIViewController {
 
         setupTable()
         fetchCurrencies()
+        setupSearchViewController()
 
         spinnerView.isHidden = true
     }
@@ -46,12 +52,31 @@ class CheckoutViewController: UIViewController {
         currenciesTable.dataSource = self
         currenciesTable.delegate = self
 
+        //to hide keyboard when search is opened
+        currenciesTable.keyboardDismissMode = .onDrag
+
         //to remove empty table lines
         currenciesTable.tableFooterView = UIView()
     }
 
     private func setupTotalPrice(price: Money) {
         totalPriceLabel.text = price.toString()
+    }
+
+    private func setupSearchViewController() {
+
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+
+        searchWrapperView.addSubview(searchController.searchBar)
+
+        //UI setup
+        searchController.searchBar.placeholder = NSLocalizedString("CHECKOUT_VC__SEARCH_TEXT", comment: "")
+        searchController.searchBar.tintColor = UIColor.titleColor
+        searchController.searchBar.barTintColor = UIColor.lightBackgroundColor
     }
 
     // MARK: UI methods
@@ -77,12 +102,39 @@ class CheckoutViewController: UIViewController {
         }
     }
 
+    private func fetchConversionRate(for currency: Currency) {
+
+        guard let totalPrice = basket?.totalPriceInUSDollars else {
+            return
+        }
+
+        showSpinner()
+        currencyService.getConversionRate(to: currency.isoCode,
+                                          success: { [weak self] (rate) in
+            let convertedPrice = totalPrice.convert(to: currency, withConversionRate: rate)
+
+            DispatchQueue.main.async {
+                self?.setupTotalPrice(price: convertedPrice)
+                self?.hideSpinner()
+            }
+
+        }) { [weak self] (error) in
+            DispatchQueue.main.async {
+                self?.hideSpinner()
+                self?.showErrorAlert()
+            }
+        }
+    }
+
     // MARK: Actions
+
     @IBAction func pressedClose(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        searchController.isActive = false
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: Spinner methods
+
     private func showSpinner() {
         spinnerView.isHidden = false
         spinnerView.startAnimating()
@@ -96,6 +148,7 @@ class CheckoutViewController: UIViewController {
     }
 
     // MARK: Error Handling
+
     private func showErrorAlert() {
         let alertController = UIAlertController(
             title: NSLocalizedString("GENERAL_ERROR_ALERT_TITLE", comment: ""),
@@ -110,10 +163,43 @@ class CheckoutViewController: UIViewController {
 
         self.present(alertController, animated: true, completion: nil)
     }
+
+    // MARK: - Search Helper
+
+    private func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredCurrencies = currencies.filter({(currency: Currency) -> Bool in
+            if currency.name.lowercased().contains(searchText.lowercased()) ||
+                currency.isoCode.lowercased().contains(searchText.lowercased()) {
+                return true
+            }
+            return false
+        })
+
+        currenciesTable.reloadData()
+    }
+
+    private func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+
+    private func getCurrencyAtIndex(_ index: Int) -> Currency {
+        if isFiltering() {
+            return filteredCurrencies[index]
+        } else {
+            return currencies[index]
+        }
+    }
 }
 
 extension CheckoutViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering() {
+            return filteredCurrencies.count
+        }
         return currencies.count
     }
 
@@ -124,7 +210,8 @@ extension CheckoutViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let viewModel = CheckoutTableViewCellViewModel(currencies[indexPath.row])
+        let currency = getCurrencyAtIndex(indexPath.row)
+        let viewModel = CheckoutTableViewCellViewModel(currency)
         cell.configure(withViewModel: viewModel)
         return cell
     }
@@ -134,27 +221,16 @@ extension CheckoutViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
 
-        guard let totalPrice = basket?.totalPriceInUSDollars else {
-            return
-        }
+        let convertToCurrency = getCurrencyAtIndex(indexPath.row)
+        fetchConversionRate(for: convertToCurrency)
+    }
+}
 
-        let convertToCurrency = currencies[indexPath.row]
-
-        showSpinner()
-        currencyService.getConversionRate(to: convertToCurrency.isoCode,
-            success: { [weak self] (rate) in
-            let convertedPrice = totalPrice.convert(to: convertToCurrency, withConversionRate: rate)
-
-            DispatchQueue.main.async {
-                self?.setupTotalPrice(price: convertedPrice)
-                self?.hideSpinner()
-            }
-
-        }) { [weak self] (error) in
-            DispatchQueue.main.async {
-                self?.hideSpinner()
-                self?.showErrorAlert()
-            }
+// MARK: UISearchResultsUpdating Delegate
+extension CheckoutViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let text = searchController.searchBar.text {
+            filterContentForSearchText(text)
         }
     }
 }

@@ -203,12 +203,8 @@
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Fh-1S-jVe">
-                                <rect key="frame" x="0.0" y="264.5" width="375" height="402.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convert total to:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAd-Dh-Lhu" customClass="LozalizedLabel" customModule="Shopping_Basket" customModuleProvider="target">
-                                <rect key="frame" x="20" y="232.5" width="335" height="22"/>
+                                <rect key="frame" x="20" y="232" width="335" height="22"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <color key="textColor" name="primaryTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -216,6 +212,17 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedStringKey" value="CHECKOUT_VC__LIST_TITLE"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5L-e4-gXR">
+                                <rect key="frame" x="0.0" y="259.5" width="375" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hhN-sQ-RoM"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Fh-1S-jVe">
+                                <rect key="frame" x="0.0" y="319.5" width="375" height="347.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="J5l-aY-zkA">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" name="titleColor"/>
@@ -223,13 +230,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="M5L-e4-gXR" firstAttribute="top" secondItem="ZAd-Dh-Lhu" secondAttribute="bottom" constant="5" id="52x-OA-Nuu"/>
+                            <constraint firstItem="M5L-e4-gXR" firstAttribute="leading" secondItem="a60-7i-ebe" secondAttribute="leading" id="5aW-YO-tyW"/>
                             <constraint firstItem="XWo-Bj-Ybu" firstAttribute="centerX" secondItem="hMH-hD-6Nw" secondAttribute="centerX" id="CWY-3I-mHG"/>
                             <constraint firstItem="XWo-Bj-Ybu" firstAttribute="top" secondItem="a60-7i-ebe" secondAttribute="top" constant="70" id="ECA-fg-SFA"/>
                             <constraint firstItem="ZAd-Dh-Lhu" firstAttribute="top" secondItem="XWo-Bj-Ybu" secondAttribute="bottom" constant="70" id="KDT-CL-rY8"/>
                             <constraint firstItem="wes-cA-92p" firstAttribute="centerX" secondItem="XWo-Bj-Ybu" secondAttribute="centerX" constant="10" id="LMH-yk-nQZ"/>
+                            <constraint firstItem="4Fh-1S-jVe" firstAttribute="top" secondItem="M5L-e4-gXR" secondAttribute="bottom" id="Ld7-PC-VBO"/>
                             <constraint firstItem="a60-7i-ebe" firstAttribute="bottom" secondItem="4Fh-1S-jVe" secondAttribute="bottom" id="MLR-of-mxD"/>
-                            <constraint firstItem="4Fh-1S-jVe" firstAttribute="top" secondItem="ZAd-Dh-Lhu" secondAttribute="bottom" constant="10" id="QBQ-vP-luC"/>
                             <constraint firstItem="J5l-aY-zkA" firstAttribute="centerX" secondItem="hMH-hD-6Nw" secondAttribute="centerX" id="W3Y-v4-d2P"/>
+                            <constraint firstItem="M5L-e4-gXR" firstAttribute="trailing" secondItem="a60-7i-ebe" secondAttribute="trailing" id="Wmx-Pp-qHt"/>
                             <constraint firstItem="wes-cA-92p" firstAttribute="centerY" secondItem="XWo-Bj-Ybu" secondAttribute="centerY" constant="-10" id="erF-DX-h1U"/>
                             <constraint firstItem="J5l-aY-zkA" firstAttribute="centerY" secondItem="hMH-hD-6Nw" secondAttribute="centerY" id="gd5-ia-NUr"/>
                             <constraint firstItem="a60-7i-ebe" firstAttribute="trailing" secondItem="4Fh-1S-jVe" secondAttribute="trailing" id="lry-PE-bKf"/>
@@ -249,6 +259,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="currenciesTable" destination="4Fh-1S-jVe" id="Ihp-or-mPT"/>
+                        <outlet property="searchWrapperView" destination="M5L-e4-gXR" id="MVq-sD-rch"/>
                         <outlet property="spinnerView" destination="J5l-aY-zkA" id="7kU-MV-5A5"/>
                         <outlet property="totalPriceLabel" destination="XWo-Bj-Ybu" id="G3C-p1-bQY"/>
                     </connections>
