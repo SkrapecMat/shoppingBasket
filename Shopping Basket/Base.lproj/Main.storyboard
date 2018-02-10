@@ -181,22 +181,41 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Fh-1S-jVe">
-                                <rect key="frame" x="0.0" y="232.5" width="375" height="434.5"/>
+                                <rect key="frame" x="0.0" y="264.5" width="375" height="402.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convert total ce to:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAd-Dh-Lhu" customClass="LozalizedLabel" customModule="Shopping_Basket" customModuleProvider="target">
+                                <rect key="frame" x="20" y="232.5" width="335" height="22"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <color key="textColor" name="primaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedStringKey" value="CHECKOUT_VC__LIST_TITLE"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XWo-Bj-Ybu" firstAttribute="centerX" secondItem="hMH-hD-6Nw" secondAttribute="centerX" id="CWY-3I-mHG"/>
                             <constraint firstItem="XWo-Bj-Ybu" firstAttribute="top" secondItem="a60-7i-ebe" secondAttribute="top" constant="70" id="ECA-fg-SFA"/>
+                            <constraint firstItem="ZAd-Dh-Lhu" firstAttribute="top" secondItem="XWo-Bj-Ybu" secondAttribute="bottom" constant="70" id="KDT-CL-rY8"/>
                             <constraint firstItem="a60-7i-ebe" firstAttribute="bottom" secondItem="4Fh-1S-jVe" secondAttribute="bottom" id="MLR-of-mxD"/>
-                            <constraint firstItem="4Fh-1S-jVe" firstAttribute="top" secondItem="XWo-Bj-Ybu" secondAttribute="bottom" constant="70" id="UIc-ld-AZ1"/>
+                            <constraint firstItem="4Fh-1S-jVe" firstAttribute="top" secondItem="ZAd-Dh-Lhu" secondAttribute="bottom" constant="10" id="QBQ-vP-luC"/>
                             <constraint firstItem="a60-7i-ebe" firstAttribute="trailing" secondItem="4Fh-1S-jVe" secondAttribute="trailing" id="lry-PE-bKf"/>
+                            <constraint firstItem="a60-7i-ebe" firstAttribute="trailing" secondItem="ZAd-Dh-Lhu" secondAttribute="trailing" constant="20" id="w3s-TY-dC0"/>
+                            <constraint firstItem="ZAd-Dh-Lhu" firstAttribute="leading" secondItem="a60-7i-ebe" secondAttribute="leading" constant="20" id="x5t-hg-ozy"/>
                             <constraint firstItem="4Fh-1S-jVe" firstAttribute="leading" secondItem="hMH-hD-6Nw" secondAttribute="leading" id="zu3-hr-2Iz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a60-7i-ebe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9Sf-QU-onG"/>
+                    <navigationItem key="navigationItem" id="9Sf-QU-onG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="n02-Fq-aS1">
+                            <color key="tintColor" name="titleColor"/>
+                            <connections>
+                                <action selector="pressedClose:" destination="rsq-Yf-Cqc" id="T6h-lp-8Jw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="currenciesTable" destination="4Fh-1S-jVe" id="Ihp-or-mPT"/>
                         <outlet property="totalPriceLabel" destination="XWo-Bj-Ybu" id="G3C-p1-bQY"/>
@@ -247,8 +266,14 @@
         <namedColor name="lightBackgroundColor">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="primaryTextColor">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="secondaryTextColor">
             <color red="0.70200002193450928" green="0.70200002193450928" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="titleColor">
+            <color red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="titleColor">
             <color red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

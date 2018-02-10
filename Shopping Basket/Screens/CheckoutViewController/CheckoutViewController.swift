@@ -14,10 +14,15 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var currenciesTable: UITableView!
 
     var basket: Basket?
-    private var currencies: [Currency] = []
+    private var currencies: [Currency] = [] {
+        didSet {
+            currencies.sort { $0.isoCode < $1.isoCode }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavBarTitle()
 
         if let totalPrice = basket?.totalPriceInUSDollars {
             setupTotalPrice(price: totalPrice)
@@ -39,6 +44,12 @@ class CheckoutViewController: UIViewController {
         totalPriceLabel.text = price.toString()
     }
 
+    // MARK: UI methods
+    private func setNavBarTitle() {
+        self.navigationItem.setupTitle(withText:
+            NSLocalizedString("CHECKOUT_VC__TITLE", comment: ""))
+    }
+
     // MARK: Networking
     private func fetchCurrencies() {
         let currencyService = JSONRatesCurrencyService()
@@ -50,6 +61,10 @@ class CheckoutViewController: UIViewController {
         }) { (error) in
 
         }
+    }
+
+    @IBAction func pressedClose(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

@@ -23,3 +23,7 @@
 //BASKET VIEW CONTROLLER
 "BASKET_VC__TITLE" = "Your basket";
 "BASKET_VC__CHECKOUT" = "Checkout";
+
+//CHECKOUT VIEW CONTROLLER
+"CHECKOUT_VC__TITLE" = "Total price";
+"CHECKOUT_VC__LIST_TITLE" = "Convert total price to:";

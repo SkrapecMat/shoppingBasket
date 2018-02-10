@@ -13,6 +13,7 @@ extension Money {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 2
         formatter.roundingMode = .up
+        formatter.minimumIntegerDigits = 1
 
         if let roundedPrice = formatter.string(from:
             NSDecimalNumber(decimal: self.amount)) {

@@ -77,6 +77,8 @@
 		D2EB4C05202F5AE700CE551E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C03202F5AE700CE551E /* Constants.swift */; };
 		D2EB4C07202F673100CE551E /* CurrencyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C06202F673100CE551E /* CurrencyDTO.swift */; };
 		D2EB4C08202F673100CE551E /* CurrencyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C06202F673100CE551E /* CurrencyDTO.swift */; };
+		D2EB4C0A202F71CB00CE551E /* LocalizedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C09202F71CB00CE551E /* LocalizedLabel.swift */; };
+		D2EB4C0B202F71CB00CE551E /* LocalizedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB4C09202F71CB00CE551E /* LocalizedLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,7 @@
 		D2EB4C00202F5A2600CE551E /* UserDefaults+Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Currencies.swift"; sourceTree = "<group>"; };
 		D2EB4C03202F5AE700CE551E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2EB4C06202F673100CE551E /* CurrencyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDTO.swift; sourceTree = "<group>"; };
+		D2EB4C09202F71CB00CE551E /* LocalizedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,7 @@
 				D27CF687202E3FF700C0360E /* ProductTableView */,
 				D2C7EF35202E516500573052 /* NavItemTitleView.swift */,
 				D2A47208202EFC9F0086DCCB /* PrimaryButton.swift */,
+				D2EB4C09202F71CB00CE551E /* LocalizedLabel.swift */,
 			);
 			path = "Common Views";
 			sourceTree = "<group>";
@@ -455,6 +459,7 @@
 				D2153152202A3C1400F1879D /* AppDelegate.swift in Sources */,
 				D20EBAE5202B9FD2007B699C /* UITableViewCell+Identifier.swift in Sources */,
 				D23B704A202CE22D00735E6D /* UIFont+ShoppingBasket.swift in Sources */,
+				D2EB4C0A202F71CB00CE551E /* LocalizedLabel.swift in Sources */,
 				D215317F202A5D5800F1879D /* Product.swift in Sources */,
 				D27CF696202E403F00C0360E /* BasketViewController.swift in Sources */,
 				D23B704E202CE47500735E6D /* UIColor+ShoppingBasket.swift in Sources */,
@@ -492,6 +497,7 @@
 				D2AC4EC6202B7C2E005B6DE7 /* JSONRatesCurrencyService.swift in Sources */,
 				D20EBAE6202B9FD2007B699C /* UITableViewCell+Identifier.swift in Sources */,
 				D23B704B202CE22D00735E6D /* UIFont+ShoppingBasket.swift in Sources */,
+				D2EB4C0B202F71CB00CE551E /* LocalizedLabel.swift in Sources */,
 				D2153167202A3C1400F1879D /* Shopping_BasketTests.swift in Sources */,
 				D27CF697202E403F00C0360E /* BasketViewController.swift in Sources */,
 				D23B704F202CE47500735E6D /* UIColor+ShoppingBasket.swift in Sources */,
