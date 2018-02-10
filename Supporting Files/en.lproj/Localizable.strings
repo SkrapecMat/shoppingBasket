@@ -27,3 +27,8 @@
 //CHECKOUT VIEW CONTROLLER
 "CHECKOUT_VC__TITLE" = "Total price";
 "CHECKOUT_VC__LIST_TITLE" = "Convert total price to:";
+
+//ERRORS
+"GENERAL_ERROR_ALERT_TITLE" = "Oops";
+"GENERAL_ERROR_ALERT_TEXT" = "Something went wrong. Please try again.";
+"GENERAL_ERROR_ALERT_BUTTON" = "OK";

@@ -72,6 +72,7 @@ class CheckoutViewController: UIViewController {
         }) { [weak self] (error) in
             DispatchQueue.main.async {
                 self?.hideSpinner()
+                self?.showErrorAlert()
             }
         }
     }
@@ -92,6 +93,22 @@ class CheckoutViewController: UIViewController {
         spinnerView.stopAnimating()
         spinnerView.isHidden = true
         view.isUserInteractionEnabled = true
+    }
+
+    // MARK: Error Handling
+    private func showErrorAlert() {
+        let alertController = UIAlertController(
+            title: NSLocalizedString("GENERAL_ERROR_ALERT_TITLE", comment: ""),
+            message: NSLocalizedString("GENERAL_ERROR_ALERT_TEXT", comment: ""),
+            preferredStyle: .alert)
+
+        let okAction = UIAlertAction(
+            title: NSLocalizedString("GENERAL_ERROR_ALERT_BUTTON", comment: ""),
+            style: .default, handler: nil)
+
+        alertController.addAction(okAction)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -117,7 +134,7 @@ extension CheckoutViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
 
-        guard var totalPrice = basket?.totalPriceInUSDollars else {
+        guard let totalPrice = basket?.totalPriceInUSDollars else {
             return
         }
 
@@ -136,6 +153,7 @@ extension CheckoutViewController: UITableViewDelegate {
         }) { [weak self] (error) in
             DispatchQueue.main.async {
                 self?.hideSpinner()
+                self?.showErrorAlert()
             }
         }
     }

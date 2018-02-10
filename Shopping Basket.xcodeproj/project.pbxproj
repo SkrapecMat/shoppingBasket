@@ -298,22 +298,22 @@
 		D2AC4EC0202B7AF0005B6DE7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D2AC4EC7202B7F12005B6DE7 /* Currency */,
+				D2AC4EC7202B7F12005B6DE7 /* JSONRates */,
+				D2AC4EC1202B7B5B005B6DE7 /* CurrencyService.swift */,
 				D2AC4ECB202B80A9005B6DE7 /* NetworkingConstants.swift */,
 				D20EBACA202B976A007B699C /* NetworkingError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		D2AC4EC7202B7F12005B6DE7 /* Currency */ = {
+		D2AC4EC7202B7F12005B6DE7 /* JSONRates */ = {
 			isa = PBXGroup;
 			children = (
-				D2AC4EC1202B7B5B005B6DE7 /* CurrencyService.swift */,
 				D2AC4EC4202B7C2E005B6DE7 /* JSONRatesCurrencyService.swift */,
 				D2EB4C06202F673100CE551E /* CurrencyDTO.swift */,
 				D2EB4C13202F7C1000CE551E /* ConversionDTO.swift */,
 			);
-			path = Currency;
+			path = JSONRates;
 			sourceTree = "<group>";
 		};
 		D2EB4BFF202F550B00CE551E /* CheckoutTableCell */ = {
