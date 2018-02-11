@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LozalizedLabel: UILabel {
+class LocalizedLabel: UILabel {
 
     @IBInspectable var localizedStringKey: String {
         get {

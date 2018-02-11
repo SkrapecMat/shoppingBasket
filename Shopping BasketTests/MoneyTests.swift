@@ -102,4 +102,33 @@ class MoneyTests: XCTestCase {
 
         XCTAssertFalse(isZero)
     }
+
+    //MARK: To String
+
+    func testIfMoneyWithZeroDecimalsWillBeConvertedToStringWithZeroDecimals() {
+        let currency = Currency.default
+        let money = Money(currency: currency, amount: Decimal(10))
+
+        let moneyString = money.toString()
+
+        XCTAssertEqual(moneyString, "10 USD")
+    }
+
+    func testIfMoneyWithNoIntegerDigitWillBeConvertedToStringWithOneIntegerDigit() {
+        let currency = Currency.default
+        let money = Money(currency: currency, amount: Decimal(0.2))
+
+        let moneyString = money.toString()
+
+        XCTAssertEqual(moneyString, "0.2 USD")
+    }
+
+    func testIfMoneyWithThreeDecimalsWillBeRoundedUpToTwoDecimals() {
+        let currency = Currency.default
+        let money = Money(currency: currency, amount: Decimal(2.245))
+
+        let moneyString = money.toString()
+
+        XCTAssertEqual(moneyString, "2.25 USD")
+    }
 }
