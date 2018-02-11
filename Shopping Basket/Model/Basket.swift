@@ -9,7 +9,7 @@
 class Basket {
     private(set) var totalPriceInUSDollars: Money = Money(currency: Currency.default,
                                                      amount: 0)
-    private var selectedItems: [LineItem] = []
+    private(set) var selectedItems: [LineItem] = []
 
     // MARK: Public
     func add(product: Product) -> Int {
@@ -30,9 +30,6 @@ class Basket {
     func remove(product: Product) -> Int {
         var totalAmount = 0
         if let lineItem = selectedItems.first(where: {product.uuid == $0.product.uuid}) {
-            if lineItem.amount == 0 {
-                return totalAmount
-            }
             //if line item is in basket, decrease amount
             totalAmount = lineItem.amount - 1
 
