@@ -34,8 +34,9 @@ class Basket {
             totalAmount = lineItem.amount - 1
 
             //if amount is 0, remove whole line item
-            if totalAmount == 0 {
+            if totalAmount <= 0 {
                 removeLineItem(ofProduct: product)
+                return 0
             } else {
                 lineItem.amount = totalAmount
                 totalPriceInUSDollars = totalPriceInUSDollars.subtract(product.price)

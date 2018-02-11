@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20B2DB720309C1D003E37ED /* ProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2DB620309C1D003E37ED /* ProductTests.swift */; };
+		D20B2DBB2030A266003E37ED /* MoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2DBA2030A266003E37ED /* MoneyTests.swift */; };
 		D20EBACB202B976A007B699C /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBACA202B976A007B699C /* NetworkingError.swift */; };
 		D20EBAD0202B9B0E007B699C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D20EBAD3202B9B0E007B699C /* Localizable.strings */; };
 		D20EBAE1202B9F60007B699C /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EBAE0202B9F60007B699C /* ProductListViewController.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D20B2DB620309C1D003E37ED /* ProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTests.swift; sourceTree = "<group>"; };
+		D20B2DBA2030A266003E37ED /* MoneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTests.swift; sourceTree = "<group>"; };
 		D20EBACA202B976A007B699C /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		D20EBAD2202B9B0E007B699C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D20EBAE0202B9F60007B699C /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				D2311CCB203086B500C047EA /* BasketTests.swift */,
+				D20B2DB620309C1D003E37ED /* ProductTests.swift */,
+				D20B2DBA2030A266003E37ED /* MoneyTests.swift */,
 				D2A1293B2030852C00DDAD4E /* Info.plist */,
 			);
 			path = "Shopping BasketTests";
@@ -437,6 +443,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2311CCC203086B500C047EA /* BasketTests.swift in Sources */,
+				D20B2DB720309C1D003E37ED /* ProductTests.swift in Sources */,
+				D20B2DBB2030A266003E37ED /* MoneyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
